@@ -1,0 +1,157 @@
+// Dashboard widgets
+
+// KPI / stat card
+// --------------------------------------------------
+//
+// <div class="card cm-stat">
+//   <div class="card-body">
+//     <div class="cm-stat-icon bg-primary-subtle text-primary-emphasis"><i class="fa-solid fa-cart-shopping"></i></div>
+//     <div class="cm-stat-label">Orders</div>
+//     <div class="cm-stat-value">1,284</div>
+//     <div class="cm-stat-trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> 12.5% <span>vs last month</span></div>
+//     <div class="cm-stat-sparkline"><canvas></canvas></div>  (optional, edge to edge chart)
+//   </div>
+// </div>
+
+.cm-stat {
+  .card-body {
+    position: relative;
+  }
+
+  .cm-stat-icon {
+    position: absolute;
+    top: $card-spacer-y;
+    right: $card-spacer-x;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: $cm-icon-font-size;
+    border-radius: 50%;
+  }
+
+  .cm-stat-label {
+    padding-right: 3.5rem;
+    font-size: $cm-caps-font-size;
+    font-weight: $font-weight-bold;
+    color: var(--cm-muted);
+    text-transform: uppercase;
+    @include text-truncate();
+  }
+
+  .cm-stat-value {
+    padding-right: 3.5rem;
+    margin: .25rem 0;
+    font-size: $h3-font-size;
+    font-weight: $headings-font-weight;
+    line-height: 1.2;
+    color: var(--#{$prefix}emphasis-color);
+    @include text-truncate();
+  }
+
+  .cm-stat-trend {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    @include text-truncate();
+
+    span {
+      font-weight: $font-weight-normal;
+      color: var(--cm-muted);
+    }
+  }
+}
+
+.cm-stat-sparkline {
+  position: relative;
+  height: 3rem;
+  margin: .75rem (-$card-spacer-x) (-$card-spacer-y);
+  overflow: hidden;
+  @include border-bottom-radius($card-inner-border-radius);
+}
+
+// Sized, positioned container for responsive canvas charts (Chart.js...)
+.cm-chart {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+}
+
+// Sortable / filterable tables (table[data-cm-table], see clearmin.js)
+// --------------------------------------------------
+
+.cm-table {
+  th[data-sort] {
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+
+    &::after {
+      display: inline-block;
+      margin-left: .35em;
+      content: "\2195"; // ↕
+      opacity: .3;
+    }
+
+    &[aria-sort="ascending"]::after {
+      content: "\2191"; // ↑
+      opacity: 1;
+    }
+
+    &[aria-sort="descending"]::after {
+      content: "\2193"; // ↓
+      opacity: 1;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  .cm-table-empty td {
+    padding: 2rem;
+    color: var(--cm-muted);
+    text-align: center;
+  }
+}
+
+.cm-table-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: $font-size-sm;
+  color: var(--cm-muted);
+
+  .pagination {
+    margin: 0;
+  }
+}
+
+// "Live" indicator: <span class="badge text-bg-danger cm-live">Live</span>
+// --------------------------------------------------
+
+.cm-live::before {
+  display: inline-block;
+  width: .5em;
+  height: .5em;
+  margin-right: .35em;
+  vertical-align: .05em;
+  content: "";
+  background: currentcolor;
+  border-radius: 50%;
+  animation: cm-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes cm-pulse {
+  50% {
+    opacity: .2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cm-live::before {
+    animation: none;
+  }
+}

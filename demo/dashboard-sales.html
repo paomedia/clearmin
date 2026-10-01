@@ -2,20 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/c3.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
         <title>Clearmin template</title>
     </head>
     <body class="cm-no-transition cm-2-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
-                <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </nav>
             <div id="cm-menu-content">
                 <div id="cm-menu-items-wrapper">
@@ -23,6 +23,7 @@
                         <ul class="cm-menu-items">
                             <li><a href="index.html" class="sf-house">Home</a></li>
                             <li class="active"><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li><a href="tables.html" class="sf-database">Data tables</a></li>
                             <li><a href="components-text.html" class="sf-brick">Components</a></li>
                             <li class="cm-submenu">
                                 <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
@@ -36,7 +37,6 @@
                                 <a class="sf-cat">Icons <span class="caret"></span></a>
                                 <ul>
                                     <li><a href="ico-sf.html">Small-n-flat</a></li>
-                                    <li><a href="ico-md.html">Material Design</a></li>
                                     <li><a href="ico-fa.html">Font Awesome</a></li>
                                 </ul>
                             </li>
@@ -49,60 +49,59 @@
         </div>
         <header id="cm-header">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <div class="cm-flex">
                     <h1>Dashboard</h1> 
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
                 </div>
-                <div class="pull-right">
-                    <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"> <span class="label label-danger">23</span> </button>
-                    <div class="popover cm-popover bottom">
-                        <div class="arrow"></div>
-                        <div class="popover-content">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading text-overflow">
-                                        <i class="fa fa-fw fa-envelope"></i> Nunc volutpat aliquet magna.
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
                                     </h4>
-                                    <p class="list-group-item-text text-overflow">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-envelope"></i> Aliquam orci lectus
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
                                     </h4>
                                     <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-warning"></i> Holy guacamole !
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
                                     </h4>
                                     <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
                                 </a>
                             </div>
-                            <div style="padding:10px"><a class="btn btn-success btn-block" href="#">Show me more...</a></div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
-                        </li>
-                        <li class="divider"></li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -111,65 +110,111 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="dashboard-sales.html">Sales analytics</a></li>
-                            <li><a href="dashboard-visitors.html">Website Visitors</a></li>
-                            <li><a href="dashboard-server_stats.html">Server Stats</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="dashboard-sales.html">Sales analytics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dashboard-visitors.html">Website Visitors</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dashboard-server_stats.html">Server Stats</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="pull-right" style="border-left:1px solid #e5e5e5"><a title="Download as PDF" class="btn btn-default btn-light md-file-download"></a></div>
-                <div class="pull-right"><a title="Customize indicators" class="btn btn-default btn-light md-settings"></a></div>
+                <div style="border-left:1px solid var(--cm-border-light)"><a title="Download as PDF" class="btn btn-default btn-faded"><i class="fa-solid fa-download" aria-hidden="true"></i></a></div>
+                <div><a title="Customize indicators" class="btn btn-default btn-faded"><i class="fa-solid fa-gear" aria-hidden="true"></i></a></div>
             </nav>
         </header>
         <div id="global">
             <div class="container-fluid">
+                <div class="row cm-fix-height">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-primary-subtle text-primary-emphasis"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Revenue</div>
+                                <div class="cm-stat-value">$48,250</div>
+                                <div class="cm-stat-trend text-success"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> 12.5% <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="32,35,33,38,36,40,39,44,42,46,45,48" data-color="primary" role="img" aria-label="Revenue, last 12 months"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-turquoise-subtle text-turquoise-emphasis"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Orders</div>
+                                <div class="cm-stat-value">1,284</div>
+                                <div class="cm-stat-trend text-success"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> 8.1% <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="980,1010,995,1060,1040,1100,1090,1150,1170,1160,1230,1284" data-color="turquoise" role="img" aria-label="Orders, last 12 months"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-purple-subtle text-purple-emphasis"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">New customers</div>
+                                <div class="cm-stat-value">312</div>
+                                <div class="cm-stat-trend text-danger"><i class="fa-solid fa-arrow-trend-down" aria-hidden="true"></i> 3.4% <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="390,372,380,361,355,349,340,344,331,325,323,312" data-color="purple" role="img" aria-label="New customers, last 12 months"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-warning-subtle text-warning-emphasis"><i class="fa-solid fa-percent" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Conversion rate</div>
+                                <div class="cm-stat-value">3.62%</div>
+                                <div class="cm-stat-trend text-success"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> 0.4% <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="3.1,3.2,3.15,3.3,3.25,3.4,3.35,3.45,3.5,3.48,3.58,3.62" data-color="warning" role="img" aria-label="Conversion rate, last 12 months"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">C3 Gauge</div>
-                            <div class="panel-body">
-                                <div id="d1-c1" style="height:150px"></div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Returning customers</div>
+                            <div class="card-body">
+                                <div class="cm-chart" style="height:150px"><canvas id="gauge-returning" data-gauge="42" data-color="turquoise" role="img" aria-label="Returning customers: 42%"></canvas></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">C3 Gauge</div>
-                            <div class="panel-body">
-                                <div id="d1-c2" style="height:150px"></div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Cart abandonment</div>
+                            <div class="card-body">
+                                <div class="cm-chart" style="height:150px"><canvas id="gauge-abandonment" data-gauge="22" data-color="primary" role="img" aria-label="Cart abandonment: 22%"></canvas></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">C3 Gauge</div>
-                            <div class="panel-body">
-                                <div id="d1-c3" style="height:150px"></div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Yearly target</div>
+                            <div class="card-body">
+                                <div class="cm-chart" style="height:150px"><canvas id="gauge-target" data-gauge="72" data-color="warning" role="img" aria-label="Yearly target reached: 72%"></canvas></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">C3 Bars</div>
-                    <div class="panel-body">
-                        <div id="d1-c5" style="height:320px"></div>
+                <div class="card">
+                    <div class="card-header">Monthly sales</div>
+                    <div class="card-body">
+                        <div class="cm-chart" style="height:320px"><canvas id="chart-sales" role="img" aria-label="Monthly sales, online and retail"></canvas></div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">C3 Splines</div>
-                    <div class="panel-body">
-                        <div id="d1-c4" style="height:320px"></div>
+                <div class="card">
+                    <div class="card-header">Revenue vs expenses</div>
+                    <div class="card-body">
+                        <div class="cm-chart" style="height:320px"><canvas id="chart-revenue" role="img" aria-label="Monthly revenue and expenses"></canvas></div>
                     </div>
                 </div>
-                <div class="alert alert-info shadowed" role="alert"> <i class="fa fa-fw fa-info-circle"></i> C3.js chart library by Masayuki Tanaka (MIT): <a href="http://c3js.org/">http://c3js.org/</a> </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Native progress bars</div>
+                <div class="alert alert-info shadowed" role="alert"><i class="fa-solid fa-fw fa-circle-info" aria-hidden="true"></i> Charts by Chart.js (MIT): <a href="https://www.chartjs.org/">https://www.chartjs.org/</a></div>
+                <div class="card">
+                    <div class="card-header">Native progress bars</div>
                     <table class="table table-bordered">
                         <tr>
                             <td style="white-space:nowrap">Nemo enim ipsam</td>
                             <td>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-danger" style="width:3%"></div>
+                                    <div class="progress-bar bg-danger" style="width:3%"></div>
                                 </div>
                             </td>
                             <td>3%</td>
@@ -178,7 +223,7 @@
                             <td style="white-space:nowrap">Neque porro quisquam</td>
                             <td style="width:100%">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" style="width:9%"></div>
+                                    <div class="progress-bar bg-warning" style="width:9%"></div>
                                 </div>
                             </td>
                             <td>9%</td>
@@ -222,16 +267,13 @@
                     </table>
                 </div>
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
         </div>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/jquery.mousewheel.min.js"></script>
-        <script src="assets/js/jquery.cookie.min.js"></script>
-        <script src="assets/js/fastclick.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/clearmin.min.js"></script>
-        <script src="assets/js/lib/d3.min.js"></script>
-        <script src="assets/js/lib/c3.min.js"></script>
-        <script src="assets/js/demo/dashboard.js"></script>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
+        <script src="assets/vendor/chart.umd.min.js"></script>
+        <script src="assets/js/charts.js"></script>
+        <script src="assets/js/dashboard-sales.js"></script>
     </body>
 </html>

@@ -1,42 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <title>CLEARMIN / LESS</title>
-    <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+    <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+    <link rel="stylesheet" href="../dist/css/roboto.css">
+    <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+    <title>Clearmin login</title>
   </head>
   <body class="cm-login">
-
-    <div class="text-center" style="padding:90px 0 30px 0;background:#fff;border-bottom:1px solid #ddd">
-      <img src="assets/img/logo-big.svg" width="300" height="45">
+    <div class="text-center bg-body border-bottom" style="padding:90px 0 30px">
+      <img src="../dist/img/logo-big.svg" width="300" height="45" alt="Clearmin">
     </div>
-    
-    <div class="col-sm-6 col-md-4 col-lg-3" style="margin:40px auto; float:none;">
-      <form method="post" action="index.html">
-	<div class="col-xs-12">
-          <div class="form-group">
-	    <div class="input-group">
-	      <div class="input-group-addon"><i class="fa fa-fw fa-user"></i></div>
-	      <input type="text" name="username" class="form-control" placeholder="Username">
-	    </div>
-          </div>
-          <div class="form-group">
-	    <div class="input-group">
-	      <div class="input-group-addon"><i class="fa fa-fw fa-lock"></i></div>
-	      <input type="password" name="password" class="form-control" placeholder="Password">
-	    </div>
-          </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 col-xl-3" style="margin:40px 0">
+          <form method="post" action="index.html" class="row g-3">
+            <div class="col-12">
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i></span>
+                <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-fw fa-lock" aria-hidden="true"></i></span>
+                <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password">
+              </div>
+            </div>
+            <div class="col-6 d-flex align-items-center">
+              <div class="form-check mb-0">
+                <input class="form-check-input" type="checkbox" id="remember">
+                <label class="form-check-label" for="remember">Remember me</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary w-100">Sign in</button>
+            </div>
+          </form>
         </div>
-	<div class="col-xs-6">
-          <div class="checkbox"><label><input type="checkbox"> Remember me</label></div>
-	</div><div class="col-xs-6">
-          <button type="submit" class="btn btn-block btn-primary">Sign in</button>
-        </div>
-      </form>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,106 @@
+/*!
+ * Clearmin v2.0.0 — Bootstrap 5.3 dashboard / admin template
+ * Licensed under GPL-3.0 (https://github.com/paomedia/clearmin/blob/master/LICENSE)
+ */
+
+@use "sass:color";
+@use "sass:map";
+
+// Configuration
+// --------------------------------------------------
+
+@import "bootstrap/scss/functions";
+
+@import "variables";
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+$theme-colors: map.merge($theme-colors, $cm-theme-colors);
+
+@import "bootstrap/scss/maps";
+
+// Subtle variants for the extra colors (used by alerts, list groups...)
+@each $color, $value in $cm-theme-colors {
+  $theme-colors-text: map.merge($theme-colors-text, ($color: shade-color($value, 60%)));
+  $theme-colors-bg-subtle: map.merge($theme-colors-bg-subtle, ($color: tint-color($value, 80%)));
+  $theme-colors-border-subtle: map.merge($theme-colors-border-subtle, ($color: tint-color($value, 60%)));
+
+  // .text-*-emphasis, .bg-*-subtle and .border-*-subtle utilities
+  $utilities-text-emphasis-colors: map.merge($utilities-text-emphasis-colors, ("#{$color}-emphasis": var(--#{$prefix}#{$color}-text-emphasis)));
+  $utilities-bg-subtle: map.merge($utilities-bg-subtle, ("#{$color}-subtle": var(--#{$prefix}#{$color}-bg-subtle)));
+  $utilities-border-subtle: map.merge($utilities-border-subtle, ("#{$color}-subtle": var(--#{$prefix}#{$color}-border-subtle)));
+
+  @if $enable-dark-mode {
+    $theme-colors-text-dark: map.merge($theme-colors-text-dark, ($color: tint-color($value, 40%)));
+    $theme-colors-bg-subtle-dark: map.merge($theme-colors-bg-subtle-dark, ($color: shade-color($value, 80%)));
+    $theme-colors-border-subtle-dark: map.merge($theme-colors-border-subtle-dark, ($color: shade-color($value, 40%)));
+  }
+}
+
+// Dark mode: subtle variants derived from the jewel palette, blended into the ink surfaces
+@if $enable-dark-mode {
+  @each $color, $value in $cm-theme-colors-dark {
+    $emphasis: map.get($cm-theme-colors-dark-emphasis, $color) or tint-color($value, 45%);
+    $theme-colors-text-dark: map.merge($theme-colors-text-dark, ($color: $emphasis));
+    $theme-colors-bg-subtle-dark: map.merge($theme-colors-bg-subtle-dark, ($color: color.mix($value, $body-bg-dark, 22%)));
+    $theme-colors-border-subtle-dark: map.merge($theme-colors-border-subtle-dark, ($color: color.mix($value, $body-bg-dark, 55%)));
+  }
+}
+
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Bootstrap
+// --------------------------------------------------
+
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api";
+
+// Clearmin
+// --------------------------------------------------
+
+@import "clearmin/root";
+@import "clearmin/global";
+@import "clearmin/components";
+@import "clearmin/navbar";
+@import "clearmin/menu";
+@import "clearmin/popovers";
+@import "clearmin/tabs";
+@import "clearmin/search";
+@import "clearmin/breadcrumbs";
+@import "clearmin/desktop";
+@import "clearmin/widgets";
+@import "clearmin/dark";
+@import "clearmin/spacing";

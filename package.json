@@ -1,0 +1,38 @@
+{
+  "name": "clearmin",
+  "version": "2.0.0",
+  "description": "Clearmin dashboard / admin template built on Bootstrap 5.3",
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run vendor && npm run css && npm run js",
+    "css": "npm run css-compile && npm run css-prefix && npm run css-minify",
+    "css-compile": "sass --no-source-map --silence-deprecation=import --load-path=node_modules --quiet-deps src/scss/clearmin.scss dist/css/clearmin.css",
+    "css-prefix": "postcss dist/css/clearmin.css --use autoprefixer --no-map --replace",
+    "css-minify": "sass --no-source-map --style=compressed dist/css/clearmin.css dist/css/clearmin.min.css",
+    "js": "node build/copy.mjs src/js/clearmin.js dist/js/clearmin.js && terser src/js/clearmin.js --compress --mangle --comments /^!/ -o dist/js/clearmin.min.js",
+    "vendor": "node build/vendor.mjs",
+    "watch": "sass --watch --silence-deprecation=import --load-path=node_modules --quiet-deps src/scss/clearmin.scss dist/css/clearmin.css"
+  },
+  "browserslist": [
+    ">= 0.5%",
+    "last 2 major versions",
+    "not dead",
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Firefox ESR",
+    "iOS >= 12",
+    "Safari >= 12",
+    "not Explorer <= 11",
+    "not kaios <= 2.5"
+  ],
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "@popperjs/core": "2.11.8",
+    "autoprefixer": "^10.4.21",
+    "bootstrap": "5.3.8",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.93.0",
+    "terser": "^5.44.0"
+  }
+}

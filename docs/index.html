@@ -2,37 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/highlight.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+    <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+    <link rel="stylesheet" href="../dist/css/roboto.css">
+    <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+    <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/highlight.css">
     <title>Clearmin Docs</title>
-    <style>.panel > h3{margin:0;padding:20px;border-bottom:1px solid #ddd;}
-      .anchor{position:relative;top:-70px}
-      body { position: relative;}
+    <style>
+      .doc-section { scroll-margin-top: 70px; }
+      .doc-section > h3 { margin: 0; padding: 20px; border-bottom: 1px solid var(--bs-border-color); }
+      .doc-icon-link { display: block; padding: 20px; color: inherit; text-decoration: none; background: var(--bs-tertiary-bg); border: 1px solid var(--bs-border-color); border-radius: 2px; }
+      .doc-icon-link:hover { text-decoration: none; border-color: #3498db; }
+      pre { padding: 10px; background: #f5f5f5; border: 1px solid #ccc; border-radius: 2px; }
+      pre .hljs { background: transparent; }
+      [data-bs-theme="dark"] pre { filter: invert(.9) hue-rotate(180deg); }
     </style>
   </head>
-  <body class="cm-no-transition cm-1-navbar" data-spy="scroll" data-target="#cm-menu-scroller">
+  <body class="cm-no-transition cm-1-navbar" data-bs-spy="scroll" data-bs-target="#cm-menu-scroller">
     <div id="cm-menu">
       <nav class="cm-navbar cm-navbar-turquoise">
-        <div class="cm-flex cm-logo" style="background-image:url(assets/img/logo.svg)"></div>
-        <div class="btn btn-turquoise md-menu-white" data-toggle="cm-menu"></div>
+        <div class="cm-flex"><a href="index.html" class="cm-logo" aria-label="Clearmin docs"></a></div>
+        <button type="button" class="btn btn-turquoise" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
       </nav>
       <div id="cm-menu-content">
         <div id="cm-menu-items-wrapper">
           <div id="cm-menu-scroller">
-            <ul class="cm-menu-items nav">
-              <li><a href="#a0" class="md-home">Home</a></li>
-              <li><a href="#a1" class="md-flash-on">Quick start</a></li>
-              <li><a href="#a2" class="md-web">General structure</a></li>
-              <li><a href="#a3" class="md-more-horiz">Navbars</a></li>
-              <li><a href="#a4" class="md-menu">Left menu</a></li>
-              <li><a href="#a5" class="md-image">SVG Icons</a></li>
-              <li><a href="#a6" class="md-developer-mode">Less Variables</a></li>
-              <li><a href="#a7" class="md-settings-applications">Javascript options</a></li>
+            <ul class="cm-menu-items">
+              <li><a href="#home"><i class="fa-solid fa-house" aria-hidden="true"></i>Home</a></li>
+              <li><a href="#quick-start"><i class="fa-solid fa-bolt" aria-hidden="true"></i>Quick start</a></li>
+              <li><a href="#structure"><i class="fa-regular fa-window-maximize" aria-hidden="true"></i>General structure</a></li>
+              <li><a href="#navbars"><i class="fa-solid fa-ellipsis" aria-hidden="true"></i>Navbars</a></li>
+              <li><a href="#menu"><i class="fa-solid fa-bars" aria-hidden="true"></i>Left menu</a></li>
+              <li><a href="#icons"><i class="fa-regular fa-image" aria-hidden="true"></i>Icons</a></li>
+              <li><a href="#sass"><i class="fa-solid fa-code" aria-hidden="true"></i>Sass &amp; build</a></li>
+              <li><a href="#javascript"><i class="fa-solid fa-sliders" aria-hidden="true"></i>JavaScript options</a></li>
+              <li><a href="#features"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i>Dashboard features</a></li>
+              <li><a href="#migration"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>Migrating from 1.x</a></li>
             </ul>
           </div>
         </div>
@@ -40,87 +47,74 @@
     </div>
     <header id="cm-header">
       <nav class="cm-navbar cm-navbar-turquoise">
-        <div class="btn btn-turquoise md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
-        <div class="cm-flex"><h1>Clearmin Docs <i class="fa fa-fw fa-angle-right"></i> <span id="oksub">Home</span></h1></div>
+        <button type="button" class="btn btn-turquoise d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+        <div class="cm-flex"><h1>Clearmin Docs <i class="fa-solid fa-fw fa-angle-right" aria-hidden="true"></i> <span id="oksub">Home</span></h1></div>
+        <button type="button" class="btn btn-turquoise" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
       </nav>
     </header>
     <div id="global">
-      <div class="anchor" id="a0"></div>
-      <div class="container-fluid cm-container-white">
-        <h2 style="margin-top:0">Clearmin 1.0 documentation</h2>
-	<blockquote>
-          <p>This document describe how to use and customize Clearmin bootstrap template. For topics not covered by this document, please refer to the official Bootstrap v3.3.4 documentation on <a href="http://getbootstrap.com/">http://getbootstrap.com/</a></p>
+      <div class="container-fluid cm-container-white doc-section" id="home">
+        <h2 class="mt-0">Clearmin 2.0 documentation</h2>
+        <blockquote class="blockquote fs-6">
+          <p>This document describes how to use and customize the Clearmin Bootstrap template. For topics not covered by this document, please refer to the official Bootstrap 5.3 documentation on <a href="https://getbootstrap.com/docs/5.3/">getbootstrap.com</a>.</p>
         </blockquote>
-	<table class="table">
-	  <tbody>
-	    <tr>
-	      <td><strong>Version</strong></td>
-	      <td>1.0</td>
-	    </tr>
-	    <tr>
-	      <td><strong>Released</strong></td>
-	      <td>May, 2015</td>
-	    </tr>
-	    <tr>
-	      <td><strong>Type</strong></td>
-	      <td>HTML Template</td>
-	    </tr>
-	    <tr>
-	      <td><strong>Bootstrap</strong></td>
-	      <td>Compatible with 3.3.x</td>
-	    </tr>
-	    <tr>
-	      <td><strong>Layouts</strong></td>
-	      <td>
-		<i class="fa fa-fw fa-check"></i> Responsive<br>
-		<i class="fa fa-fw fa-check"></i> Fluid<br>
-	      </td>
-	    </tr>
-	    <tr>
-	      <td><strong>Browsers</strong></td>
-	      <td>
-		<i class="fa fa-fw fa-check"></i> IE 9, 10, 11<br>
-		<i class="fa fa-fw fa-check"></i> Latest Chrome<br>
-		<i class="fa fa-fw fa-check"></i> Latest Firefox<br>
-		<i class="fa fa-fw fa-check"></i> Latest Opera<br>
-		<i class="fa fa-fw fa-check"></i> Latest Safari<br>
-	      </td>
-	    </tr>
-	    <tr>
-	      <td><strong>Uses Less</strong></td>
-	      <td>Yes</td>
-	    </tr>
-	    <tr>
-	      <td><strong>Uses Sass</strong></td>
-	      <td>No</td>
-	    </tr>
-	  </tbody>
-	</table>
+        <table class="table mb-0">
+          <tbody>
+            <tr>
+              <td><strong>Version</strong></td>
+              <td>2.0</td>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td>HTML Template</td>
+            </tr>
+            <tr>
+              <td><strong>Bootstrap</strong></td>
+              <td>5.3.x (Sass sources + bootstrap.min.js / popper.min.js)</td>
+            </tr>
+            <tr>
+              <td><strong>Layouts</strong></td>
+              <td>
+                <i class="fa-solid fa-fw fa-check" aria-hidden="true"></i> Responsive<br>
+                <i class="fa-solid fa-fw fa-check" aria-hidden="true"></i> Fluid
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Browsers</strong></td>
+              <td>Latest Chrome, Edge, Firefox, Safari and their mobile versions</td>
+            </tr>
+            <tr>
+              <td><strong>Dependencies</strong></td>
+              <td>None: jQuery is no longer required</td>
+            </tr>
+            <tr>
+              <td><strong>Uses Sass</strong></td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="container-fluid">
-	<div style="height:20px"></div>
-	<div class="anchor" id="a1"></div>
-        <div class="panel panel-default">
-	  <h3>1. Quick start</h3>
-          <div class="panel-body">
-	    <p>To start using Clearmin template in a new project you can use this <a href="minimal.html">minimal template</a> :</p>
-	    <pre><code class="html">&lt;!DOCTYPE html&gt;
+        <div class="card doc-section mt-4" id="quick-start">
+          <h3>1. Quick start</h3>
+          <div class="card-body">
+            <p>To start using Clearmin in a new project you can use this <a href="minimal.html">minimal template</a>:</p>
+            <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/bootstrap-clearmin.min.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/roboto.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/material-design.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/small-n-flat.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/font-awesome.min.css&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;dist/css/clearmin.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;dist/css/roboto.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;dist/css/small-n-flat.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;dist/fontawesome/css/all.min.css&quot;&gt;
     &lt;title&gt;Clearmin Page&lt;/title&gt;
   &lt;/head&gt;
   &lt;body class=&quot;cm-no-transition cm-1-navbar&quot;&gt;
     &lt;div id=&quot;cm-menu&quot;&gt;
       &lt;nav class=&quot;cm-navbar cm-navbar-primary&quot;&gt;
         &lt;div class=&quot;cm-flex&quot;&gt;&lt;div class=&quot;cm-logo&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-        &lt;div class=&quot;btn btn-primary md-menu-white&quot; data-toggle=&quot;cm-menu&quot;&gt;&lt;/div&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;cm-menu&quot; aria-label=&quot;Toggle menu&quot;&gt;&lt;i class=&quot;fa-solid fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
       &lt;/nav&gt;
       &lt;div id=&quot;cm-menu-content&quot;&gt;
         &lt;div id=&quot;cm-menu-items-wrapper&quot;&gt;
@@ -134,143 +128,127 @@
     &lt;/div&gt;
     &lt;header id=&quot;cm-header&quot;&gt;
       &lt;nav class=&quot;cm-navbar cm-navbar-primary&quot;&gt;
-        &lt;div class=&quot;btn btn-primary md-menu-white hidden-md hidden-lg&quot; data-toggle=&quot;cm-menu&quot;&gt;&lt;/div&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary d-lg-none&quot; data-toggle=&quot;cm-menu&quot; aria-label=&quot;Toggle menu&quot;&gt;&lt;i class=&quot;fa-solid fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
         &lt;div class=&quot;cm-flex&quot;&gt;&lt;h1&gt;Put your title here&lt;/h1&gt;&lt;/div&gt;
       &lt;/nav&gt;
     &lt;/header&gt;
     &lt;div id=&quot;global&quot;&gt;
       &lt;div class=&quot;container-fluid&quot;&gt;
-        &lt;div class=&quot;panel panel-default&quot;&gt;
-          &lt;div class=&quot;panel-body&quot;&gt;
-            &lt;h2 style=&quot;margin:0&quot;&gt;Hello World !&lt;/h2&gt;
+        &lt;div class=&quot;card&quot;&gt;
+          &lt;div class=&quot;card-body&quot;&gt;
+            &lt;h2 class=&quot;m-0&quot;&gt;Hello World !&lt;/h2&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;footer class=&quot;cm-footer&quot;&gt;&lt;span class=&quot;pull-right&quot;&gt;&amp;copy; ACME Inc.&lt;/span&gt;&lt;/footer&gt;
+      &lt;footer class=&quot;cm-footer&quot;&gt;&lt;span class=&quot;float-end&quot;&gt;&amp;copy; ACME Inc.&lt;/span&gt;&lt;/footer&gt;
     &lt;/div&gt;
-    &lt;script src=&quot;assets/js/lib/jquery.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;assets/js/jquery.mousewheel.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;assets/js/jquery.cookie.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;assets/js/fastclick.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;assets/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;assets/js/clearmin.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;dist/js/popper.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;dist/js/clearmin.min.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+            <div class="alert alert-info mb-0">
+              <i class="fa-solid fa-fw fa-circle-info" aria-hidden="true"></i> Note that every Clearmin specific class and id is <code>cm-</code> prefixed.
+            </div>
+          </div>
+        </div>
 
-	      <div class="alert alert-info" style="margin-bottom:0">
-		<i class="fa fa-fw fa-info-circle"></i> Note that every clearmin-specific classes and ids are <code>cm-</code> prefixed.
-	      </div>
-
-	  </div>
-	</div>
-
-	<div class="anchor" id="a2"></div>
-        <div class="panel panel-default">
-	  <h3>2. General structure</h3>
-          <div class="panel-body">
-
-	    <h4>2.1. CSS and JS files</h4>
-	    <p><strong>CSS files (<code>&lt;head&gt;</code>) :</strong></p>
+        <div class="card doc-section" id="structure">
+          <h3>2. General structure</h3>
+          <div class="card-body">
+            <h4>2.1. Repository layout</h4>
             <ul>
-              <li>assets/css/roboto.css (main font)</li>
-              <li>assets/css/bootstrap-clearmin.css (bootstrap theme)</li>
-              <li>assets/css/material-design.css (material design svg icons classes)</li>
-              <li>assets/css/small-n-flat.css (small-n-flat svg icons classes)</li>
-              <li>assets/css/font-awesome.min.css (iconic font classes)</li>
+              <li><code>src/scss/</code>: Sass sources (<code>clearmin.scss</code> is the entry point, <code>_variables.scss</code> holds every setting)</li>
+              <li><code>src/js/clearmin.js</code>: JavaScript source</li>
+              <li><code>dist/</code>: ready to use files (compiled css/js, Bootstrap, Popper &amp; Font Awesome bundles, fonts, images)</li>
+              <li><code>demo/</code> and <code>docs/</code>: demo pages and this documentation</li>
             </ul>
-            <p><strong>Javascript files (just before <code>&lt;/body&gt;</code>) :</strong></p>
+
+            <h4>2.2. CSS and JS files</h4>
+            <p><strong>CSS files (<code>&lt;head&gt;</code>):</strong></p>
             <ul>
-              <li>assets/js/lib/jquery.min.js (required by bootstrap)</li>
-              <li>assets/js/lib/jquery.mousewheel.min.js (catch some scrolling events)</li>
-              <li>assets/js/lib/jquery.cookie.min.js (cookie manipulation plugin)</li>
-              <li>assets/js/lib/fastclick.min.js (enhance mobile device click events)</li>
-              <li>assets/js/bootstrap.min.js (bootstrap js widgets)</li>
-              <li>assets/js/clearmin.js (required by clearmin)</li>
+              <li>dist/css/clearmin.min.css (Bootstrap 5.3 + Clearmin theme)</li>
+              <li>dist/css/roboto.css (main font)</li>
+              <li>dist/css/small-n-flat.css (small-n-flat colored svg icons classes)</li>
+              <li>dist/fontawesome/css/all.min.css (Font Awesome 7 Free icons)</li>
             </ul>
-
-	    <hr>
-
-	    <h4>2.2. Body classes</h4>
-	    <ul>
-              <li>cm-no-transition : <strong>must</strong> be present to prevent certain browser to start transition on page load</li>
-              <li>cm-1-navbar : when one navbar is present on your page</li>
-              <li>cm-2-navbar : when two navbars are present on your page</li>
-              <li>cm-3-navbar : when three navbars are present on your page</li>
-              <li>cm-menu-toggled : if you want the menu to be toggled on page load (see next section)</li>
-            </ul>
-
-	    <hr>
-	    <h4>2.3. Preserving left menu state between pages</h4>
-
-	    <p>When the user choose to use the condensed version of the side menu, we want it to stay in this state when the user click on another page. To achieve this, a cookie is automatically set to reflect the menu state.</p>
-            <p>You got two different way to restore this state :</p>
+            <p><strong>JavaScript files (just before <code>&lt;/body&gt;</code>):</strong></p>
             <ul>
-              <li>
-                <strong>Server-side</strong> (recommended) :
-		when your server receive a cookie named &quot;cm-menu-toggled&quot; with value &quot;true&quot;, just add <code>.cm-menu-toggled</code> class to the body tag.
-              </li>
-              <li>
-                <strong>Client-side</strong> : Nothing to do, <code>.cm-menu-toggled</code> is automaticaly added to the body when needed but it can cause a blinking reflow on certain browsers (e.g. Google Chrome)
-              </li>
+              <li>dist/js/popper.min.js (required by Bootstrap dropdowns, tooltips and popovers)</li>
+              <li>dist/js/bootstrap.min.js (Bootstrap widgets)</li>
+              <li>dist/js/clearmin.min.js (Clearmin layout)</li>
             </ul>
 
+            <hr>
 
-	    <hr>
-	    <h4>2.4. <i class="fa fa-warning"></i> Content containers</h4>
-	    <ul>
-              <li>Dont forget the <code>&lt;div id=&quot;global&quot;&gt;</code> to contain the page (e.g. <a href="minimal.html">minimal template</a>)</li>
-	      <li>Use one or many <code>&lt;div class=&quot;container-fluid&quot;&gt;</code> to contain your content</li>
-	    </ul>
-	  </div>
-	</div>
+            <h4>2.3. Body classes</h4>
+            <ul>
+              <li><code>cm-no-transition</code>: <strong>must</strong> be present to prevent browsers from starting transitions on page load</li>
+              <li><code>cm-1-navbar</code>: when one navbar is present on your page</li>
+              <li><code>cm-2-navbar</code>: when two navbars are present on your page</li>
+              <li><code>cm-3-navbar</code>: when three navbars are present on your page</li>
+              <li><code>cm-menu-toggled</code>: if you want the menu to be toggled on page load (see next section)</li>
+            </ul>
 
+            <hr>
 
-	<div class="anchor" id="a3"></div>
-        <div class="panel panel-default">
-	  <h3>3. Navbars <small>(header)</small></h3>
-          <div class="panel-body">
-	    <p>Here is the minimal code to build a Clearmin navbar (those must be placed inside <code>&lt;header id=&quot;cm-header&quot;&gt;</code>) :</p>
-	    <pre><code class="html">&lt;nav class=&quot;cm-navbar cm-navbar-default&quot;&gt;
-&lt;div class=&quot;cm-flex&quot;&gt;&lt;/div&gt;
+            <h4>2.4. Preserving left menu state between pages</h4>
+            <p>When the user chooses the condensed version of the side menu, we want it to stay in this state on the next page. To achieve this, a cookie is automatically set to reflect the menu state.</p>
+            <p>There are two different ways to restore this state:</p>
+            <ul>
+              <li><strong>Server-side</strong> (recommended): when your server receives a cookie named &quot;cm-menu-toggled&quot; with value &quot;true&quot;, just add the <code>.cm-menu-toggled</code> class to the body tag.</li>
+              <li><strong>Client-side</strong>: nothing to do, <code>.cm-menu-toggled</code> is automatically added to the body when needed, but it can cause a blinking reflow on some browsers.</li>
+            </ul>
+
+            <hr>
+
+            <h4>2.5. <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Content containers</h4>
+            <ul>
+              <li>Don't forget the <code>&lt;div id=&quot;global&quot;&gt;</code> to contain the page (e.g. <a href="minimal.html">minimal template</a>)</li>
+              <li>Use one or many <code>&lt;div class=&quot;container-fluid&quot;&gt;</code> to contain your content</li>
+              <li>Add <code>.cm-fix-height</code> to a <code>.row</code> to give the same height to all its cards</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card doc-section" id="navbars">
+          <h3>3. Navbars <small class="text-body-secondary">(header)</small></h3>
+          <div class="card-body">
+            <p>Here is the minimal code to build a Clearmin navbar (navbars must be placed inside <code>&lt;header id=&quot;cm-header&quot;&gt;</code>):</p>
+            <pre><code class="html">&lt;nav class=&quot;cm-navbar cm-navbar-default&quot;&gt;
+  &lt;div class=&quot;cm-flex&quot;&gt;&lt;/div&gt;
 &lt;/nav&gt;</code></pre>
-	    <ul>
-	      <li><code>.cm-flex</code> will take all available space, other direct child elements will be square shaped (unless width is specified)</li>
-	      <li>You can replace <code>.cm-navbar-default</code> class by one of our predifined color. (e.g. <code>.cm-navbar-turquoise</code>)</li>
-	    </ul>
-	    
-	    <p>
-	      You can add as many buttons as you want, before and after <code>.cm-flex</code>.<br>
-	      You have to specify pull-right class when an item is on right<br>
-	      Several types of widgets can be inserted in it :
-	    </p>
-	    <ul>
-	      <li>Breadcrumbs (default and primary navs only)</li>
-	      <li>Tabs (default nav only)</li>
-	      <li>Search Bar</li>
-	      <li>Popovers</li>
-	      <li>Dropdowns...</li>
-	    </ul>
-	    <p>Check <a href="navbars.html">this demo page</a> and pick what you need !</p>
+            <ul>
+              <li><code>.cm-flex</code> takes all the available space, other direct children are square shaped (unless a width is specified)</li>
+              <li>You can replace <code>.cm-navbar-default</code> by any theme color: <code>primary</code>, <code>success</code>, <code>info</code>, <code>warning</code>, <code>danger</code>, <code>gray</code>, <code>yellow</code>, <code>purple</code>, <code>turquoise</code>, <code>midnight</code>... (e.g. <code>.cm-navbar-turquoise</code>)</li>
+            </ul>
+            <p>
+              You can add as many buttons as you want, before and after <code>.cm-flex</code>: they are displayed in source order.<br>
+              Several types of widgets can be inserted in a navbar:
+            </p>
+            <ul>
+              <li>Breadcrumbs</li>
+              <li>Tabs (default navbar only)</li>
+              <li>Search bar</li>
+              <li>Popovers (a <code>.dropdown-menu.cm-popover</code> opened by a Bootstrap dropdown toggle)</li>
+              <li>Dropdowns (use <code>.dropdown-menu-end</code> for right side buttons)</li>
+            </ul>
+            <p>Check <a href="navbars.html">this demo page</a> and pick what you need!</p>
+            <div class="alert alert-info mb-0">
+              <i class="fa-solid fa-fw fa-circle-info" aria-hidden="true"></i> Add the <code>.cm-navbar-slideup</code> class to a <code>&lt;nav&gt;</code> to hide it when the user scrolls down.
+            </div>
+          </div>
+        </div>
 
-	      <div class="alert alert-info" style="margin-bottom:0">
-		<i class="fa fa-fw fa-info-circle"></i> Add <code>.cm-navbar-slideup</code> class to the <code>&lt;nav&gt;</code> to hide it when user scroll down.
-	      </div>
-
-	  </div>
-	</div>
-
-
-	<div class="anchor" id="a4"></div>
-        <div class="panel panel-default">
-	  <h3>4. Left menu</h3>
-          <div class="panel-body">
-
-	    <h4>4.1. Structure</h4>
-	    <p>Here is a basic example : </p>
-	    <pre><code class="html">&lt;div id=&quot;cm-menu&quot;&gt;
+        <div class="card doc-section" id="menu">
+          <h3>4. Left menu</h3>
+          <div class="card-body">
+            <h4>4.1. Structure</h4>
+            <p>Here is a basic example:</p>
+            <pre><code class="html">&lt;div id=&quot;cm-menu&quot;&gt;
   &lt;nav class=&quot;cm-navbar cm-navbar-primary&quot;&gt;
     &lt;div class=&quot;cm-flex&quot;&gt;&lt;div class=&quot;cm-logo&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;btn btn-primary md-menu-white&quot; data-toggle=&quot;cm-menu&quot;&gt;&lt;/div&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;cm-menu&quot; aria-label=&quot;Toggle menu&quot;&gt;&lt;i class=&quot;fa-solid fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
   &lt;/nav&gt;
   &lt;div id=&quot;cm-menu-content&quot;&gt;
     &lt;div id=&quot;cm-menu-items-wrapper&quot;&gt;
@@ -282,19 +260,18 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+            <p>If you want to add some custom html content in that menu, you should include it into the <code>&lt;ul class=&quot;cm-menu-items&quot;&gt;</code> to prevent scroll bugs when the menu content exceeds the page height.</p>
 
-	    <p>If you want to add some custom html content in that menu, you should include it into the <code>&lt;ul class=&quot;cm-menu-items&quot;&gt;</code> to prevent eventual scroll bugs when menu content exceed page height.</p>
-
-	    <hr>
-	    <h4>4.2. Logo</h4>
-	    <p>You can change the brand logo by editing the last lines of <code>bootstrap-clearmin.css</code> / <code>bootstrap-clearmin.min.css</code> : </p>
-	    <pre><code class="css">#cm-menu .cm-logo {
-  background: url(../img/your-logo-here.ext) no-repeat 15px center;
+            <hr>
+            <h4>4.2. Logo</h4>
+            <p>Set the <code>$cm-logo</code> Sass variable (see <a href="#sass">Sass &amp; build</a>), or override the rule in your own stylesheet:</p>
+            <pre><code class="css">#cm-menu .cm-logo {
+  background: url(../img/your-logo-here.svg) no-repeat 15px center;
 }</code></pre>
-	    <hr>
-	    <h4>4.3. Submenu items</h4>
-	    <p>Only one level of submenu is currently supported, here is the code to add one :</p>
-	    <pre><code class="html">&lt;li class=&quot;cm-submenu&quot;&gt;
+            <hr>
+            <h4>4.3. Submenu items</h4>
+            <p>Only one level of submenu is supported, here is the code to add one:</p>
+            <pre><code class="html">&lt;li class=&quot;cm-submenu&quot;&gt;
   &lt;a class=&quot;an-icon-class&quot;&gt;My Submenu &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;link1.html&quot;&gt;Link 1&lt;/a&gt;&lt;/li&gt;
@@ -302,126 +279,195 @@
     &lt;li&gt;&lt;a href=&quot;link3.html&quot;&gt;Link 3&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/li&gt;</code></pre>
+            <div class="alert alert-info mb-0">
+              <i class="fa-solid fa-fw fa-circle-info" aria-hidden="true"></i> To open a submenu on page load add the <strong>.pre-open</strong> class (<code>&lt;li class=&quot;cm-submenu pre-open&quot;&gt;</code>)
+            </div>
+          </div>
+        </div>
 
-	    <div class="alert alert-info" style="margin-bottom:0">
-	      <i class="fa fa-fw fa-info-circle"></i> To open a submenu on page load add the class <strong>.pre-open</strong> (<code>&lt;li class=&quot;cm-submenu pre-open&quot;&gt;</code>)
-	    </div>
-	  </div>
-	</div>
+        <div class="card doc-section" id="icons">
+          <h3>5. Icons</h3>
+          <div class="card-body">
+            <p>Clearmin ships two icon sets:</p>
+            <ul>
+              <li><strong><a href="https://fontawesome.com/search?ic=free">Font Awesome 7 Free</a></strong> for monochrome icons (buttons, navbars, text): <code>&lt;i class=&quot;fa-solid fa-gear&quot;&gt;&lt;/i&gt;</code>. They take the color of the text, so they are white in colored buttons.</li>
+              <li><strong>Small-n-flat</strong> colored 24x24px svg icons, used as background images through the classes of <code>dist/css/small-n-flat.css</code> (e.g. <code>&lt;a class=&quot;sf-house&quot;&gt;</code> in the left menu). To lighten this file, you may delete the classes you don't use.</li>
+            </ul>
+            <p>Left menu links accept either a small-n-flat class or a Font Awesome icon as first child: <code>&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa-solid fa-house&quot;&gt;&lt;/i&gt;Home&lt;/a&gt;</code>.</p>
+            <div class="row g-3">
+              <div class="col-lg-6 text-center">
+                <a href="ico-sf.html" class="doc-icon-link" target="_blank">
+                  <span class="svg-48"><img src="../dist/img/sf/cat.svg" alt=""></span>
+                  <h4>Small-n-flat (<code>.sf-*</code>)</h4>
+                  <span class="text-body-secondary">dist/img/sf/</span>
+                </a>
+              </div>
+              <div class="col-lg-6 text-center">
+                <a href="../demo/ico-fa.html" class="doc-icon-link" target="_blank">
+                  <span class="d-block" style="height:48px;font-size:40px"><i class="fa-brands fa-font-awesome" aria-hidden="true"></i></span>
+                  <h4>Font Awesome 7 Free (<code>.fa-solid</code>, <code>.fa-regular</code>, <code>.fa-brands</code>)</h4>
+                  <span class="text-body-secondary">dist/fontawesome/</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="card doc-section" id="sass">
+          <h3>6. Sass &amp; build</h3>
+          <div class="card-body">
+            <p>Clearmin is compiled from the Bootstrap 5.3 Sass sources. Install the dependencies once, then build:</p>
+            <pre><code class="bash">npm install
+npm run build   # dist/css/clearmin(.min).css, dist/js/clearmin(.min).js + Bootstrap &amp; Popper bundles
+npm run watch   # recompile dist/css/clearmin.css on change</code></pre>
+            <p>Every variable of <code>src/scss/_variables.scss</code> is <code>!default</code>: Clearmin specific ones, and the Bootstrap ones it overrides (colors, fonts, spacing...). Here are the Clearmin ones:</p>
+            <pre><code class="scss">$cm-translen-global:   150ms;  // Transition duration for layout based animations
+$cm-translen-widget:   150ms;  // Transition duration for modals, popovers, dropdowns...
+$cm-translen-button:   75ms;   // Transition duration for .btn items
+$cm-menu-width:        262px;  // Left menu width
+$cm-navbar-height:     50px;   // Navbars height (and condensed menu width)
+$cm-border-global:     #ccc;   // Default border color for several items
+$cm-underliner-height: 3px;    // Height of underline in left menu and nav tabs
+$cm-body-bg:           #eee;   // Page background
+$cm-logo:              url("../img/logo.svg");
+$cm-desktop-breakpoint: lg;    // Breakpoint from which the menu is docked
+$cm-title-font-size:   $font-size-base;          // Navbar titles, breadcrumbs, search
+$cm-caps-font-size:    $font-size-base * .9286;  // Uppercase card headers &amp; navbar tabs
+$cm-icon-font-size:    $font-size-base * 1.2857; // Icons in navbar buttons and menu
+$cm-theme-colors: ("gray": ..., "yellow": ..., "purple": ..., "turquoise": ..., "midnight": ...);</code></pre>
+            <p>The base font size is 16px (<code>$font-size-base: 1rem</code>). Every text related size (headings, buttons, inputs, tables, dropdowns, the variables above...) is a ratio of it, so changing <code>$font-size-base</code> rescales the whole typography proportionally while the layout (navbar height, menu width, gutters) stays the same.</p>
+            <p>To customize Clearmin without touching its sources, create your own entry file and compile it with <code>node_modules</code> in the Sass load path (<code>sass --load-path=node_modules my-theme.scss</code>):</p>
+            <pre><code class="scss">// my-theme.scss
+$primary: #8e44ad;
+$cm-menu-width: 240px;
 
-	<div class="anchor" id="a5"></div>
-        <div class="panel panel-default">
-	  <h3>5. SVG icons</h3>
-          <div class="panel-body">
+@import "clearmin/src/scss/clearmin";</code></pre>
+            <div class="alert alert-info mb-0">
+              <i class="fa-solid fa-fw fa-circle-info" aria-hidden="true"></i> It's a good idea to customize <code>$primary</code> to reflect the dominant color in a harmonious way.
+            </div>
+          </div>
+        </div>
 
-	    <p>
-	      Clearmin provide a bunch of 24x24px svg icons in addition to the famous <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome icons</a>.<br>
-	      To use them as a background image, you can use classes present into <code>assets/css/small-n-flat.css</code> and <code>assets/css/material-design.css</code>.<br>
-	      To lighten those files, you may delete the classes you don't use.
-	    </p>
+        <div class="card doc-section" id="javascript">
+          <h3>7. JavaScript options</h3>
+          <div class="card-body">
+            <p><code>clearmin.js</code> initializes itself when the DOM is ready. To change the defaults, define <code>window.CMConfig</code> before loading it:</p>
+            <pre><code class="javascript">&lt;script&gt;
+  window.CMConfig = {
+    navbarHeight: 50,       // should reflect the $cm-navbar-height Sass variable
+    menuSwiper: true,       // enable swipe gesture (toggle menu) on touch devices
+    menuSwiperIOS: true,    // enable swipe gesture on iOS Safari
+    restoreMenuState: true  // client-side menu state restoration
+  }
+&lt;/script&gt;
+&lt;script src=&quot;dist/js/clearmin.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+            <p>Clearmin also initializes every Bootstrap tooltip (<code>[data-bs-toggle=&quot;tooltip&quot;]</code>) and popover (<code>[data-bs-toggle=&quot;popover&quot;]</code>) of the page. The instance is available as <code>window.CM</code> (e.g. <code>CM.menu.toggle()</code>).</p>
+          </div>
+        </div>
 
-	    <div class="row">
-	      <div class="col-md-4 text-center">	      
-		<a href="ico-sf.html" class="well" style="display:block;text-decoration:none;" target="_blank">
-		  <span class="svg-48"><img src="assets/img/sf/cat.svg"></span>
-		  <h4>Small-n-flat (<code>.sf-*</code>)</h4>
-		  <span style="color:#777">assets/img/sf/</span>
-		</a>
-	      </div>
-	      <div class="col-md-4 text-center">
-		<a href="ico-md.html" class="well" style="display:block;text-decoration:none;" target="_blank">
-		  <span class="svg-48"><img src="assets/img/md/dark/android.svg"></span>
-		  <h4>Material design (<code>.md-*</code>)</h4>
-		  <span style="color:#777">assets/img/md/dark/</span>
-		</a>
-	      </div>
-	      <div class="col-md-4 text-center">
-		<a href="ico-md.html" class="well" style="display:block;text-decoration:none;background:#222" target="_blank">
-		  <span class="svg-48"><img src="assets/img/md/light/android.svg"></span>
-		  <h4 style="color:#fff">Material design white (<code>.md-*-white</code>)</h4>
-		  <span style="color:#aaa">assets/img/md/light/</span>
-		</a>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+        <div class="card doc-section" id="features">
+          <h3>8. Dashboard features</h3>
+          <div class="card-body">
+            <h4>8.1. Dark mode</h4>
+            <p>Clearmin supports Bootstrap 5.3 color modes. Add a toggle button anywhere (its <code>&lt;i&gt;</code> icon switches between moon and sun):</p>
+            <pre><code class="html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;cm-theme&quot; aria-label=&quot;Toggle dark mode&quot;&gt;&lt;i class=&quot;fa-solid fa-moon&quot;&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+            <p>The choice is stored in <code>localStorage</code> (<code>cm-theme</code>); without a choice, the OS preference is followed. To avoid a flash of the wrong mode on page load, add this line in <code>&lt;head&gt;</code>:</p>
+            <pre><code class="html">&lt;script&gt;try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}&lt;/script&gt;</code></pre>
+            <p>From JavaScript: <code>CM.theme.set('dark')</code>, <code>CM.theme.get()</code>, and listen to the <code>cm:themechange</code> event on <code>document</code> to update charts &amp; co. Clearmin surfaces are CSS variables (<code>--cm-surface</code>, <code>--cm-body-bg</code>, <code>--cm-border</code>, <code>--cm-muted</code>...) whose dark values are set with the <code>$cm-*-dark</code> Sass variables.</p>
+            <p>The dark mode has its own &quot;midnight jewel&quot; palette: ink blue surfaces, and deeper jewel tones replacing the flat colors (<code>$cm-theme-colors-dark</code>: sapphire primary, emerald success, copper warning, garnet danger, jade turquoise, amethyst purple...). Each tone has a luminous companion for text on dark surfaces (<code>$cm-theme-colors-dark-emphasis</code>: mint, aqua, apricot, coral...), used by alerts, <code>.text-*</code> / <code>.link-*</code> utilities and form validation; contextual table rows get jewel tinted dark backgrounds. Buttons, navbars, badges, alerts and the <code>--bs-*</code> color variables all switch to it, so charts can read them too (see how the Chart.js charts of the demo dashboards follow the color mode). Set <code>$cm-glow-dark: false</code> to disable the aurora background and glowing accents. In dark mode, the default <code>.cm-navbar-primary</code> header and menu navbars become midnight (<code>$cm-navbar-dark-color</code>, <code>null</code> to keep primary); navbars using another color keep it.</p>
 
+            <hr>
+            <h4>8.2. Stat cards</h4>
+            <p>KPI tiles for the top of dashboards (see the <a href="../demo/dashboard-sales.html">sales dashboard</a>):</p>
+            <pre><code class="html">&lt;div class=&quot;card cm-stat&quot;&gt;
+  &lt;div class=&quot;card-body&quot;&gt;
+    &lt;div class=&quot;cm-stat-icon bg-primary-subtle text-primary-emphasis&quot;&gt;&lt;i class=&quot;fa-solid fa-cart-shopping&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;cm-stat-label&quot;&gt;Orders&lt;/div&gt;
+    &lt;div class=&quot;cm-stat-value&quot;&gt;1,284&lt;/div&gt;
+    &lt;div class=&quot;cm-stat-trend text-success&quot;&gt;&lt;i class=&quot;fa-solid fa-arrow-trend-up&quot;&gt;&lt;/i&gt; 8.1% &lt;span&gt;vs last month&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cm-stat-sparkline&quot;&gt;&lt;canvas&gt;&lt;/canvas&gt;&lt;/div&gt; &lt;!-- optional --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 
+            <hr>
+            <p>The optional <code>.cm-stat-sparkline</code> is an edge to edge area at the bottom of the card for a small chart. Charts need a sized, positioned container: <code>.cm-chart</code> (e.g. <code>&lt;div class=&quot;cm-chart&quot; style=&quot;height:320px&quot;&gt;&lt;canvas&gt;&lt;/canvas&gt;&lt;/div&gt;</code>). The demo dashboards (sales, website visitors, server stats) use <a href="https://www.chartjs.org/">Chart.js</a> (MIT): <code>demo/assets/js/charts.js</code> holds reusable helpers (theme colors, gauges, sparklines, doughnuts, redraw on <code>cm:themechange</code>) and <code>demo/assets/js/dashboard-*.js</code> the charts of each page, including live updating ones. A <code>&lt;span class=&quot;badge text-bg-danger cm-live&quot;&gt;Live&lt;/span&gt;</code> badge shows a pulsing dot.</p>
 
+            <hr>
+            <h4>8.3. Data tables</h4>
+            <p>Sortable, filterable and paginated tables without any plugin (see the <a href="../demo/tables.html">data tables demo</a>):</p>
+            <pre><code class="html">&lt;input type=&quot;search&quot; class=&quot;form-control&quot; data-cm-table-filter=&quot;#customers&quot;&gt;
+&lt;table id=&quot;customers&quot; class=&quot;table&quot; data-cm-table data-cm-page-size=&quot;10&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th data-sort&gt;Name&lt;/th&gt;
+      &lt;th data-sort=&quot;number&quot;&gt;MRR&lt;/th&gt;
+      &lt;th data-sort=&quot;date&quot;&gt;Customer since&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Emma Martin&lt;/td&gt;&lt;td data-value=&quot;490&quot;&gt;$490&lt;/td&gt;&lt;td data-value=&quot;2024-03-12&quot;&gt;Mar 12, 2024&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            <ul>
+              <li><code>data-sort</code> makes a column sortable (text by default, <code>number</code> or <code>date</code>); a cell can give its sort value in <code>data-value</code></li>
+              <li><code>data-cm-page-size</code> enables pagination; an info line and the pagination are added after the table</li>
+              <li>any input with <code>data-cm-table-filter=&quot;#table-id&quot;</code> filters the rows</li>
+            </ul>
 
-	<div class="anchor" id="a6"></div>
-        <div class="panel panel-default">
-	  <h3>6. Less Variables</h3>
-          <div class="panel-body">
-	    <p>Some variables in <code>clearmin-global.less</code> can be usefull to customize css file :</p>
-	    <pre><code class="less">@cm-translen-global:150ms; // Transition duration for layout based animations
-@cm-translen-widget:150ms; // Transition duration for modal, popovers, dropdown...
-@cm-translen-button:75ms; // Transition duration for .btn items
-@cm-menu-width:262px; // Left menu width
-@cm-border-global:#ccc; // Default border color for several items
-@cm-underliner-height:3px; // Height of underline in left menu and nav tabs</code></pre>
+            <hr>
+            <h4>8.4. Toasts</h4>
+            <p>Show a notification in the bottom right corner, declaratively or from JavaScript:</p>
+            <pre><code class="html">&lt;button class=&quot;btn btn-primary&quot; data-cm-toast=&quot;Your changes have been saved.&quot; data-cm-toast-title=&quot;Saved&quot; data-cm-toast-color=&quot;success&quot;&gt;Save&lt;/button&gt;</code></pre>
+            <pre><code class="javascript">CM.toast('Your changes have been saved.', { title: 'Saved', color: 'success', delay: 4000 })</code></pre>
+          </div>
+        </div>
 
-	      <div class="alert alert-info" style="margin-bottom:0">
-		<i class="fa fa-fw fa-info-circle"></i> It's a good idea to customize <code>@brand-primary</code> in <code>variables.less</code> to reflect dominant color in an harmonious way.
-	      </div>
-	  </div>
-	</div>
+        <div class="card doc-section" id="migration">
+          <h3>9. Migrating from Clearmin 1.x (Bootstrap 3)</h3>
+          <div class="card-body">
+            <p>Follow the official <a href="https://getbootstrap.com/docs/5.3/migration/">Bootstrap migration guide</a> for the Bootstrap components, then for Clearmin itself:</p>
+            <ul class="mb-0">
+              <li>Drop jQuery, jquery.cookie, jquery.mousewheel and fastclick; load <code>popper.min.js</code> before <code>bootstrap.min.js</code></li>
+              <li><code>bootstrap-clearmin.min.css</code> is now <code>clearmin.min.css</code></li>
+              <li><code>.panel</code> becomes <code>.card</code> (<code>.card-header</code>, <code>.card-body</code>)</li>
+              <li>In navbars, <code>.pull-right</code> is no longer needed; dropdowns use <code>data-bs-toggle=&quot;dropdown&quot;</code></li>
+              <li>Navbar popovers: <code>.popover.cm-popover.bottom</code> + <code>.arrow</code> become <code>.dropdown-menu.cm-popover</code> + <code>.cm-popover-arrow</code></li>
+              <li>Navbar tabs and breadcrumbs use the Bootstrap 5 markup (<code>.nav-item</code> / <code>.nav-link</code>, <code>.breadcrumb-item</code>)</li>
+              <li><code>.btn-light</code> (faded button) is renamed <code>.btn-faded</code>, <code>.btn-light</code> being a Bootstrap 5 color</li>
+              <li><code>.text-overflow</code> is replaced by Bootstrap's <code>.text-truncate</code></li>
+              <li><code>.hidden-md.hidden-lg</code> on the header menu button becomes <code>.d-lg-none</code></li>
+              <li>Material design icons (<code>.md-*</code>) are removed: use Font Awesome 7 icons inside buttons (<code>&lt;i class=&quot;fa-solid fa-bars&quot;&gt;&lt;/i&gt;</code>); Font Awesome 4 class names must be updated (<code>fa fa-cog</code> &rarr; <code>fa-solid fa-gear</code>...)</li>
+            </ul>
+          </div>
+        </div>
 
-
-        <div class="anchor" id="a7"></div>
-        <div class="panel panel-default">
-          <h3>7. Javascript Options</h3>
-	  <div class="panel-body">
-	    <p>Some init options may be changed in <code>clearmin.js</code> / <code>clearmin.min.js</code>.</p>
-	    <p>Here are the default options : </p>
-	    <pre><code class="javascript">$(function(){CM.init({
-    'navbarHeight' : 50, /* should be changed reflecting @navbar-height less variable */
-    'menuSwiper' : true, /* enable swipe gesture (toggle menu) */
-    'menuSwiperIOS' : true, /* enable swipe gesture for ios devices */
-    'restoreMenuState' : true /* activate client-side menu state restoration */
-})});</code></pre>	   
-	  </div>
-	</div>
-
-
-        <div class="panel panel-default">
-          <h3>Credits</h3>
-	  <div class="panel-body">
-	    <ul>
-	      <li><a href="http://getbootstrap.com/">Bootstrap</a> css front-end framework.</li>
-	      <li><a href="http://jquery.com/">jQuery</a> fast, small, and feature-rich JavaScript library.</li>
-	      <li><a href="http://hackerwins.github.io/summernote/">Summernote</a> Super Simple WYSIWYG Editor on Bootstrap</li>
-	      <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> The iconic font and CSS toolkit</li>
-	      <li><a href="https://www.google.com/fonts/specimen/Roboto">Roboto</a> Google font</li>
-	      <li><a href="https://github.com/paomedia/small-n-flat">Small-n-flat icons</a> SVG icons on a 24px grid</li>
-	      <li><a href="https://github.com/google/material-design-icons">Material Design Icons</a> Google SVG icons</li>
-	      <li><a href="http://d3js.org/">D3.js</a> Data-Driven Documents</li>
-	      <li><a href="http://c3js.org/">C3.js</a> D3-based reusable chart library</li>
-	      <li><a href="https://highlightjs.org/">Highlight.js</a> Syntax highlighting for the Web</li>
-	      <li><a href="https://github.com/ftlabs/fastclick">Fastclick</a> Polyfill to remove click delays on browsers with touch UIs</li>
-	      <li><a href="https://github.com/carhartl/jquery-cookie">Jquery-cookie</a> A simple, lightweight jQuery plugin for reading, writing and deleting cookies</li>
-	      <li><a href="https://github.com/jquery/jquery-mousewheel">Jquery-mousewheel</a> A jQuery plugin that adds cross-browser mouse wheel support</li>
-	    </ul>
-	  </div>
-	</div>
-
-
+        <div class="card">
+          <div class="card-header">Credits</div>
+          <div class="card-body">
+            <ul class="mb-0">
+              <li><a href="https://getbootstrap.com/">Bootstrap</a> CSS front-end framework</li>
+              <li><a href="https://popper.js.org/">Popper</a> Tooltip &amp; popover positioning engine</li>
+              <li><a href="https://quilljs.com/">Quill</a> Rich text editor</li>
+              <li><a href="https://fontawesome.com/">Font Awesome Free</a> The iconic font and CSS toolkit</li>
+              <li><a href="https://fonts.google.com/specimen/Roboto">Roboto</a> Google font</li>
+              <li><a href="https://github.com/paomedia/small-n-flat">Small-n-flat icons</a> SVG icons on a 24px grid</li>
+              <li><a href="https://www.chartjs.org/">Chart.js</a> Simple yet flexible JavaScript charting</li>
+              <li><a href="https://highlightjs.org/">Highlight.js</a> Syntax highlighting for the Web</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <footer class="cm-footer"><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+      <footer class="cm-footer"><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
     </div>
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/highlight.pack.js"></script>
-    <script src="assets/js/jquery.mousewheel.min.js"></script>
-    <script src="assets/js/jquery.cookie.min.js"></script>
-    <script src="assets/js/fastclick.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/clearmin.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../dist/js/popper.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../dist/js/clearmin.min.js"></script>
+    <script src="assets/highlight.pack.js"></script>
     <script>
-      $("body").on('activate.bs.scrollspy', function () {
-      var t = $(".cm-menu-items li.active").text();
-      if(t) $('#oksub').text(t);});
+      hljs.initHighlightingOnLoad()
+      document.body.addEventListener('activate.bs.scrollspy', event => {
+        document.getElementById('oksub').textContent = event.relatedTarget.textContent
+      })
     </script>
   </body>
 </html>

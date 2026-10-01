@@ -1,0 +1,49 @@
+// Clearmin color mode variables
+
+:root,
+[data-bs-theme="light"] {
+  --cm-body-bg: #{$cm-body-bg};
+  --cm-surface: #{$cm-surface};
+  --cm-subtle-bg: #{$cm-subtle-bg};
+  --cm-border: #{$cm-border-global};
+  --cm-border-light: #{$cm-border-light};
+  --cm-footer-bg: #{$cm-footer-bg};
+  --cm-muted: #{$cm-text-gray-light};
+  --cm-search-default-bg: #{shade-color($cm-surface, 10%)};
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+    --cm-body-bg: #{$cm-body-bg-dark};
+    --cm-surface: #{$cm-surface-dark};
+    --cm-subtle-bg: #{$cm-subtle-bg-dark};
+    --cm-border: #{$cm-border-global-dark};
+    --cm-border-light: #{$cm-border-light-dark};
+    --cm-footer-bg: #{$cm-footer-bg-dark};
+    --cm-muted: #{$cm-text-gray-light-dark};
+    --cm-search-default-bg: #{$cm-subtle-bg-dark};
+
+    // Jewel tones (used by .bg-*, .text-*, .text-bg-*, menu & tabs accents...)
+    @each $color, $value in $cm-theme-colors-dark {
+      --#{$prefix}#{$color}: #{$value};
+      --#{$prefix}#{$color}-rgb: #{to-rgb($value)};
+    }
+
+    --#{$prefix}focus-ring-color: rgba(var(--#{$prefix}primary-rgb), .35);
+  }
+
+  // Bootstrap 3 like "default" button
+  @include color-mode(dark) {
+    .btn-default {
+      --#{$prefix}btn-color: var(--#{$prefix}body-color);
+      --#{$prefix}btn-bg: var(--cm-surface);
+      --#{$prefix}btn-border-color: var(--cm-border);
+      --#{$prefix}btn-hover-color: var(--#{$prefix}emphasis-color);
+      --#{$prefix}btn-hover-bg: var(--cm-subtle-bg);
+      --#{$prefix}btn-hover-border-color: var(--cm-border);
+      --#{$prefix}btn-active-color: var(--#{$prefix}emphasis-color);
+      --#{$prefix}btn-active-bg: var(--cm-subtle-bg);
+      --#{$prefix}btn-active-border-color: var(--cm-border);
+    }
+  }
+}

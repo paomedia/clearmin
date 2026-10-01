@@ -2,19 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
         <title>Clearmin template</title>
     </head>
     <body class="cm-no-transition cm-2-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
-                <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </nav>
             <div id="cm-menu-content">
                 <div id="cm-menu-items-wrapper">
@@ -22,6 +23,7 @@
                         <ul class="cm-menu-items">
                             <li><a href="index.html" class="sf-house">Home</a></li>
                             <li class="active"><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li><a href="tables.html" class="sf-database">Data tables</a></li>
                             <li><a href="components-text.html" class="sf-brick">Components</a></li>
                             <li class="cm-submenu">
                                 <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
@@ -35,7 +37,6 @@
                                 <a class="sf-cat">Icons <span class="caret"></span></a>
                                 <ul>
                                     <li><a href="ico-sf.html">Small-n-flat</a></li>
-                                    <li><a href="ico-md.html">Material Design</a></li>
                                     <li><a href="ico-fa.html">Font Awesome</a></li>
                                 </ul>
                             </li>
@@ -48,60 +49,59 @@
         </div>
         <header id="cm-header">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <div class="cm-flex">
                     <h1>Dashboard</h1> 
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
                 </div>
-                <div class="pull-right">
-                    <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"> <span class="label label-danger">23</span> </button>
-                    <div class="popover cm-popover bottom">
-                        <div class="arrow"></div>
-                        <div class="popover-content">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading text-overflow">
-                                        <i class="fa fa-fw fa-envelope"></i> Nunc volutpat aliquet magna.
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
                                     </h4>
-                                    <p class="list-group-item-text text-overflow">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-envelope"></i> Aliquam orci lectus
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
                                     </h4>
                                     <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-warning"></i> Holy guacamole !
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
                                     </h4>
                                     <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
                                 </a>
                             </div>
-                            <div style="padding:10px"><a class="btn btn-success btn-block" href="#">Show me more...</a></div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
-                        </li>
-                        <li class="divider"></li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -110,30 +110,291 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                            <li><a href="dashboard-sales.html">Sales analytics</a></li>
-                            <li><a href="dashboard-visitors.html">Website Visitors</a></li>
-                            <li class="active"><a href="dashboard-server_stats.html">Server Stats</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dashboard-sales.html">Sales analytics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dashboard-visitors.html">Website Visitors</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="dashboard-server_stats.html">Server Stats</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="pull-right" style="border-left:1px solid #e5e5e5"><a title="Download as PDF" class="btn btn-default btn-light md-file-download"></a></div>
-                <div class="pull-right"><a title="Customize indicators" class="btn btn-default btn-light md-settings"></a></div>
+                <div style="border-left:1px solid var(--cm-border-light)"><a title="Download as PDF" class="btn btn-default btn-faded"><i class="fa-solid fa-download" aria-hidden="true"></i></a></div>
+                <div><a title="Customize indicators" class="btn btn-default btn-faded"><i class="fa-solid fa-gear" aria-hidden="true"></i></a></div>
             </nav>
         </header>
         <div id="global">
             <div class="container-fluid">
-                <div class="panel panel-default">
-                    <div class="panel-body"> <h1 style="margin:10px;">Hello World</h1> </div>
+                <div class="row cm-fix-height">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-primary-subtle text-primary-emphasis"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">CPU load</div>
+                                <div class="cm-stat-value" id="cpu-value">37%</div>
+                                <div class="cm-stat-trend"><span>16 vCPU · load avg <span id="cpu-load">5.92</span></span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="31,34,29,41,38,36,44,39,35,40,33,37" data-color="primary" role="img" aria-label="CPU load trend"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-purple-subtle text-purple-emphasis"><i class="fa-solid fa-memory" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Memory</div>
+                                <div class="cm-stat-value" id="mem-value">11.4 GB</div>
+                                <div class="cm-stat-trend"><span>of 32 GB · <span id="mem-percent">36%</span> used</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="10.2,10.4,10.9,10.7,11.1,10.8,11.3,11.6,11.2,11.5,11.3,11.4" data-color="purple" role="img" aria-label="Memory trend"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-warning-subtle text-warning-emphasis"><i class="fa-solid fa-hard-drive" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Storage</div>
+                                <div class="cm-stat-value">612 GB</div>
+                                <div class="cm-stat-trend"><span class="text-warning fw-bold"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> /backup at 91%</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="540,548,555,561,569,574,580,588,593,601,606,612" data-color="warning" role="img" aria-label="Storage trend"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-success-subtle text-success-emphasis"><i class="fa-solid fa-server" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Uptime</div>
+                                <div class="cm-stat-value">47d 12h</div>
+                                <div class="cm-stat-trend"><span class="text-success fw-bold">99.98%</span> <span>availability, 30 days</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="100,100,100,99.9,100,100,100,100,99.95,100,100,100" data-color="success" role="img" aria-label="Uptime trend"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cm-fix-height">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">CPU &amp; memory <span class="badge text-bg-danger float-end cm-live">Live</span></div>
+                            <div class="card-body">
+                                <div class="cm-chart" style="height:280px"><canvas id="chart-live" role="img" aria-label="CPU and memory usage, last 2 minutes, updated every 2 seconds"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">Disk usage</div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>/ (root) — ssd-01</span><span class="text-body-secondary">122 / 200 GB · 61%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="/ (root) — ssd-01" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:61%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>/var — ssd-01</span><span class="text-body-secondary">156 / 200 GB · 78%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="/var — ssd-01" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-warning" style="width:78%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>/home — hdd-02</span><span class="text-body-secondary">170 / 500 GB · 34%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="/home — hdd-02" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:34%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>/backup — nas-01</span><span class="text-body-secondary">1.82 / 2 TB · 91%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="/backup — nas-01" aria-valuenow="91" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-danger" style="width:91%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>/tmp — tmpfs</span><span class="text-body-secondary">1.1 / 8 GB · 14%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="/tmp — tmpfs" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:14%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cm-fix-height">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">Network traffic — 24 h</div>
+                            <div class="card-body">
+                                <div class="cm-chart" style="height:240px"><canvas id="chart-network" role="img" aria-label="Inbound and outbound network traffic, last 24 hours"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">Response time — 24 h</div>
+                            <div class="card-body">
+                                <div class="cm-chart" style="height:240px"><canvas id="chart-latency" role="img" aria-label="p50 and p95 response time, last 24 hours"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cm-fix-height">
+                    <div class="col-xxl-8">
+                        <div class="card">
+                            <div class="card-header">Servers</div>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle text-nowrap mb-0" data-cm-table>
+                                    <thead>
+                                        <tr>
+                                            <th data-sort>Server</th>
+                                            <th data-sort>Role</th>
+                                            <th data-sort>Region</th>
+                                            <th data-sort="number">CPU</th>
+                                            <th data-sort="number">Memory</th>
+                                            <th data-sort="number" class="text-end">Response</th>
+                                            <th data-sort="number">Uptime</th>
+                                            <th data-sort>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>web-01</strong></td>
+                                            <td>Web (nginx)</td>
+                                            <td class="text-body-secondary">eu-west-1</td>
+                                            <td data-value="42"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:42%"></div></div><span class="small">42%</span></div></td>
+                                            <td data-value="58"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="58%" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:58%"></div></div><span class="small">58%</span></div></td>
+                                            <td class="text-end" data-value="38">38 ms</td>
+                                            <td data-value="4110">47d 12h</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>web-02</strong></td>
+                                            <td>Web (nginx)</td>
+                                            <td class="text-body-secondary">eu-west-1</td>
+                                            <td data-value="39"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="39%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:39%"></div></div><span class="small">39%</span></div></td>
+                                            <td data-value="55"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:55%"></div></div><span class="small">55%</span></div></td>
+                                            <td class="text-end" data-value="41">41 ms</td>
+                                            <td data-value="4110">47d 12h</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>web-03</strong></td>
+                                            <td>Web (nginx)</td>
+                                            <td class="text-body-secondary">eu-west-2</td>
+                                            <td data-value="47"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="47%" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:47%"></div></div><span class="small">47%</span></div></td>
+                                            <td data-value="61"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="61%" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:61%"></div></div><span class="small">61%</span></div></td>
+                                            <td class="text-end" data-value="44">44 ms</td>
+                                            <td data-value="2">2h 14m</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>api-01</strong></td>
+                                            <td>API (Node.js)</td>
+                                            <td class="text-body-secondary">eu-west-1</td>
+                                            <td data-value="63"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="63%" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:63%"></div></div><span class="small">63%</span></div></td>
+                                            <td data-value="72"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-warning" style="width:72%"></div></div><span class="small">72%</span></div></td>
+                                            <td class="text-end" data-value="87">87 ms</td>
+                                            <td data-value="507">21d 3h</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-warning me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>api-02</strong></td>
+                                            <td>API (Node.js)</td>
+                                            <td class="text-body-secondary">eu-west-2</td>
+                                            <td data-value="88"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-danger" style="width:88%"></div></div><span class="small">88%</span></div></td>
+                                            <td data-value="81"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="81%" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-warning" style="width:81%"></div></div><span class="small">81%</span></div></td>
+                                            <td class="text-end" data-value="412">412 ms</td>
+                                            <td data-value="507">21d 3h</td>
+                                            <td><span class="badge text-bg-warning">Degraded</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>db-primary</strong></td>
+                                            <td>PostgreSQL 17</td>
+                                            <td class="text-body-secondary">eu-west-1</td>
+                                            <td data-value="54"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="54%" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:54%"></div></div><span class="small">54%</span></div></td>
+                                            <td data-value="83"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="83%" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-warning" style="width:83%"></div></div><span class="small">83%</span></div></td>
+                                            <td class="text-end" data-value="12">12 ms</td>
+                                            <td data-value="2694">112d 6h</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>db-replica</strong></td>
+                                            <td>PostgreSQL 17</td>
+                                            <td class="text-body-secondary">eu-west-2</td>
+                                            <td data-value="21"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="21%" aria-valuenow="21" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:21%"></div></div><span class="small">21%</span></div></td>
+                                            <td data-value="79"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="79%" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-warning" style="width:79%"></div></div><span class="small">79%</span></div></td>
+                                            <td class="text-end" data-value="15">15 ms</td>
+                                            <td data-value="2694">112d 6h</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>cache-01</strong></td>
+                                            <td>Redis</td>
+                                            <td class="text-body-secondary">eu-west-1</td>
+                                            <td data-value="12"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:12%"></div></div><span class="small">12%</span></div></td>
+                                            <td data-value="44"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="44%" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:44%"></div></div><span class="small">44%</span></div></td>
+                                            <td class="text-end" data-value="1">1 ms</td>
+                                            <td data-value="1555">64d 19h</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-success me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>worker-01</strong></td>
+                                            <td>Queue worker</td>
+                                            <td class="text-body-secondary">eu-west-1</td>
+                                            <td data-value="71"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="71%" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-warning" style="width:71%"></div></div><span class="small">71%</span></div></td>
+                                            <td data-value="49"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="49%" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:49%"></div></div><span class="small">49%</span></div></td>
+                                            <td class="text-end" data-value="0">—</td>
+                                            <td data-value="217">9d 1h</td>
+                                            <td><span class="badge text-bg-success">Healthy</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-circle text-secondary me-2" style="font-size:.55rem;vertical-align:.15em" aria-hidden="true"></i><strong>backup-01</strong></td>
+                                            <td>Backups</td>
+                                            <td class="text-body-secondary">eu-central-1</td>
+                                            <td data-value="0"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:0%"></div></div><span class="small">0%</span></div></td>
+                                            <td data-value="0"><div class="d-flex align-items-center gap-2"><div class="progress flex-grow-1" style="height:.35rem;min-width:60px" role="progressbar" aria-label="0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:0%"></div></div><span class="small">0%</span></div></td>
+                                            <td class="text-end" data-value="0">—</td>
+                                            <td data-value="0">—</td>
+                                            <td><span class="badge text-bg-secondary">Offline</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4">
+                        <div class="card">
+                            <div class="card-header">Recent events</div>
+                            <ul class="list-group list-group-flush flex-row flex-wrap demo-events">
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary-subtle text-primary-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-rocket" aria-hidden="true"></i></span>
+                                    <div class="small"><div>Deploy <strong>v2.14.0</strong> completed on web-01…03</div><div class="text-body-secondary">3 min ago</div></div>
+                                </li>
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-warning-subtle text-warning-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+                                    <div class="small"><div>Response time above 400 ms on <strong>api-02</strong></div><div class="text-body-secondary">12 min ago</div></div>
+                                </li>
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-info-subtle text-info-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-rotate" aria-hidden="true"></i></span>
+                                    <div class="small"><div><strong>web-03</strong> restarted after kernel update</div><div class="text-body-secondary">2 h ago</div></div>
+                                </li>
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-danger-subtle text-danger-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-hard-drive" aria-hidden="true"></i></span>
+                                    <div class="small"><div><strong>/backup</strong> usage above 90%</div><div class="text-body-secondary">5 h ago</div></div>
+                                </li>
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-secondary-subtle text-secondary-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></span>
+                                    <div class="small"><div><strong>backup-01</strong> stopped (maintenance window)</div><div class="text-body-secondary">6 h ago</div></div>
+                                </li>
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success-subtle text-success-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
+                                    <div class="small"><div>TLS certificate renewed for <strong>*.example.com</strong></div><div class="text-body-secondary">Yesterday</div></div>
+                                </li>
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success-subtle text-success-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-box-archive" aria-hidden="true"></i></span>
+                                    <div class="small"><div>Nightly database backup completed (48.2 GB)</div><div class="text-body-secondary">Yesterday</div></div>
+                                </li>
+                                <li class="list-group-item d-flex gap-3 align-items-start py-3 col-12 col-md-6 col-xxl-12">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-turquoise-subtle text-turquoise-emphasis flex-shrink-0" style="width:2rem;height:2rem"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                                    <div class="small"><div>Blocked 1,284 requests from 37 IPs (rate limit)</div><div class="text-body-secondary">2 days ago</div></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
         </div>
-        <script src="assets/js/lib/jquery-2.1.3.min.js"></script>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/jquery.mousewheel.min.js"></script>
-        <script src="assets/js/jquery.cookie.min.js"></script>
-        <script src="assets/js/fastclick.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/clearmin.min.js"></script>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
+        <script src="assets/vendor/chart.umd.min.js"></script>
+        <script src="assets/js/charts.js"></script>
+        <script src="assets/js/dashboard-server.js"></script>
     </body>
 </html>

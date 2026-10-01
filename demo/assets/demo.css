@@ -1,0 +1,19 @@
+/* Demo pages only */
+
+/* Icon lists */
+.demo-icons .row > * { padding: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 1px solid transparent; border-radius: 2px; }
+.demo-icons .row > *:hover { background: var(--bs-tertiary-bg); border-color: var(--bs-border-color); }
+
+/* Quill editor */
+.ql-toolbar.ql-snow, .ql-container.ql-snow { border-color: var(--cm-border); }
+.ql-container { font-family: inherit; font-size: inherit; }
+[data-bs-theme="dark"] .ql-snow .ql-stroke { stroke: var(--bs-body-color); }
+[data-bs-theme="dark"] .ql-snow .ql-fill { fill: var(--bs-body-color); }
+[data-bs-theme="dark"] .ql-snow .ql-picker { color: var(--bs-body-color); }
+[data-bs-theme="dark"] .ql-snow .ql-picker-options { background: var(--cm-surface); }
+[data-bs-theme="dark"] .ql-editor.ql-blank::before { color: var(--cm-muted); }
+
+/* Two columns events list (server stats) */
+@media (min-width: 768px) and (max-width: 1399.98px) {
+  .demo-events > :nth-last-child(2) { border-bottom-width: 0; }
+}

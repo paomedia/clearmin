@@ -1,0 +1,180 @@
+// Clearmin look for Bootstrap components
+
+// Buttons
+// --------------------------------------------------
+
+.btn {
+  text-transform: uppercase;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &:active,
+  &.active {
+    box-shadow: $btn-active-box-shadow;
+  }
+}
+
+// Bootstrap 3 "default" button: white with a gray border
+.btn-default {
+  @include button-variant(
+    $white,
+    $cm-border-global,
+    $body-color,
+    $hover-background: #e6e6e6,
+    $hover-border: #adadad,
+    $active-background: #e6e6e6,
+    $active-border: #adadad
+  );
+}
+
+// Half transparent until hovered (e.g. secondary actions in a navbar)
+.btn-faded {
+  opacity: .5;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+}
+
+// Cards
+// --------------------------------------------------
+
+.card {
+  margin-bottom: 20px;
+  @include cm-shadow-global();
+}
+
+.card-header {
+  position: relative;
+  font-size: $cm-caps-font-size;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  text-transform: uppercase;
+  @include text-truncate();
+
+  .badge {
+    font-size: $btn-font-size-sm;
+
+    &.float-end {
+      position: absolute;
+      right: $card-cap-padding-x;
+    }
+
+    &.float-start {
+      position: absolute;
+      left: $card-cap-padding-x;
+    }
+  }
+}
+
+// Same height for every card of a row
+.row.cm-fix-height > * {
+  display: flex;
+  flex-direction: column;
+
+  > .card {
+    flex: 1 1 auto;
+  }
+}
+
+// Clickable card with an icon, a title and a description
+.cm-thumbnail {
+  color: var(--#{$prefix}body-color);
+  text-decoration: none;
+  transition: border-color $cm-translen-button ease-in-out;
+
+  &:hover {
+    color: var(--#{$prefix}body-color);
+    text-decoration: none;
+    border-color: $link-color;
+  }
+
+  small {
+    color: var(--cm-muted);
+  }
+}
+
+// White full-width block (e.g. page introduction)
+.cm-container-white {
+  background: var(--cm-surface);
+  border-bottom: 1px solid var(--cm-border);
+  @include cm-shadow-global();
+}
+
+// 24px svg icon displayed at 48px
+.svg-48 {
+  display: block;
+  height: 48px;
+
+  img {
+    transform: scale(2);
+    transform-origin: top;
+  }
+}
+
+// Dropdowns
+// --------------------------------------------------
+
+.dropdown-menu {
+  box-shadow: var(--#{$prefix}dropdown-box-shadow);
+
+  &.show {
+    animation: cm-fade-in $cm-translen-widget ease-out;
+  }
+}
+
+@keyframes cm-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+// Alerts
+// --------------------------------------------------
+
+.alert.shadowed {
+  @include cm-shadow-global();
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color}.shadowed {
+    --#{$prefix}alert-border-color: #{tint-color($value, 30%)};
+  }
+}
+
+// Pagination
+// --------------------------------------------------
+
+.pagination.shadowed {
+  display: inline-flex;
+  border: 1px solid var(--cm-border);
+  @include border-radius($pagination-border-radius);
+  @include cm-shadow-global();
+
+  .page-link {
+    border-top: 0;
+    border-bottom: 0;
+  }
+
+  .page-item:first-child .page-link {
+    border-left: 0;
+  }
+
+  .page-item:last-child .page-link {
+    border-right: 0;
+  }
+}
+
+// Popovers & tables
+// --------------------------------------------------
+
+.popover-header {
+  font-weight: $font-weight-bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+td .progress {
+  margin: 0;
+}

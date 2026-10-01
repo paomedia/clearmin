@@ -1,0 +1,63 @@
+// Breadcrumb inside a navbar. clearmin.js hides the first items (and shows an
+// ellipsis) when it does not fit; `.lonely` is set when a single item remains.
+
+.cm-navbar .breadcrumb {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  max-width: none;
+  height: $cm-navbar-height;
+  padding: 0;
+  margin: 0;
+  font-size: $cm-title-font-size;
+  font-weight: $font-weight-normal;
+  line-height: $cm-navbar-height;
+  white-space: nowrap;
+  background: transparent;
+
+  .breadcrumb-item {
+    flex: 0 0 auto;
+  }
+
+  &.lonely {
+    display: flex;
+
+    .breadcrumb-item {
+      flex: 0 1 auto;
+      min-width: 0;
+      @include text-truncate();
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.cm-navbar:not(.cm-navbar-default) .breadcrumb {
+  --#{$prefix}breadcrumb-divider-color: #{rgba($white, .3)};
+  --#{$prefix}breadcrumb-item-active-color: #{$white};
+
+  a {
+    color: rgba($white, .6);
+    text-decoration: none;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .breadcrumb-item.active {
+    font-weight: $font-weight-bold;
+  }
+
+  .breadcrumb-item.active.ellipsis {
+    font-weight: $font-weight-normal;
+    color: rgba($white, .6);
+  }
+}
+
+.cm-navbar-default .breadcrumb {
+  font-size: $cm-caps-font-size;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+}

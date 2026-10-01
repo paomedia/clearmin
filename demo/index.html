@@ -2,19 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
         <title>Clearmin template</title>
     </head>
     <body class="cm-no-transition cm-1-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
-                <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </nav>
             <div id="cm-menu-content">
                 <div id="cm-menu-items-wrapper">
@@ -22,6 +23,7 @@
                         <ul class="cm-menu-items">
                             <li class="active"><a href="index.html" class="sf-house">Home</a></li>
                             <li><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li><a href="tables.html" class="sf-database">Data tables</a></li>
                             <li><a href="components-text.html" class="sf-brick">Components</a></li>
                             <li class="cm-submenu">
                                 <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
@@ -35,7 +37,6 @@
                                 <a class="sf-cat">Icons <span class="caret"></span></a>
                                 <ul>
                                     <li><a href="ico-sf.html">Small-n-flat</a></li>
-                                    <li><a href="ico-md.html">Material Design</a></li>
                                     <li><a href="ico-fa.html">Font Awesome</a></li>
                                 </ul>
                             </li>
@@ -48,60 +49,59 @@
         </div>
         <header id="cm-header">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <div class="cm-flex">
                     <h1>Home</h1> 
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
                 </div>
-                <div class="pull-right">
-                    <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"> <span class="label label-danger">23</span> </button>
-                    <div class="popover cm-popover bottom">
-                        <div class="arrow"></div>
-                        <div class="popover-content">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading text-overflow">
-                                        <i class="fa fa-fw fa-envelope"></i> Nunc volutpat aliquet magna.
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
                                     </h4>
-                                    <p class="list-group-item-text text-overflow">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-envelope"></i> Aliquam orci lectus
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
                                     </h4>
                                     <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-warning"></i> Holy guacamole !
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
                                     </h4>
                                     <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
                                 </a>
                             </div>
-                            <div style="padding:10px"><a class="btn btn-success btn-block" href="#">Show me more...</a></div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
-                        </li>
-                        <li class="divider"></li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -114,95 +114,95 @@
             </div>
             <div class="container-fluid">
                 <div class="row cm-fix-height">
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <img src="assets/img/sass-less.png" alt="Less support" class="img-responsive">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="assets/img/sass.png" alt="Sass support" class="img-fluid">
                                 <br>
-                                <p>Clearmin ships with vanilla CSS, but its source code utilizes Less CSS preprocessor. Quickly get started with precompiled CSS or build on the source. Colors and sizes are easily customizable with less variables.</p>
+                                <p>Clearmin ships with vanilla CSS, but its source code is written in Sass on top of Bootstrap 5.3 sources. Quickly get started with precompiled CSS or build on the source. Colors and sizes are easily customizable with Sass variables.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <img src="assets/img/devices.png" alt="Responsive across devices" class="img-responsive">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="assets/img/devices.png" alt="Responsive across devices" class="img-fluid">
                                 <br>
                                 <p>Clearmin easily and efficiently scales your websites and applications with a single code base, from phones to tablets to desktops with CSS media queries. Swipe from left on phones to toggle main menu.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <img src="assets/img/components.png" alt="Components" class="img-responsive">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="assets/img/components.png" alt="Components" class="img-fluid">
                                 <br>
-                                <p>With Bootstrap, you get extensive and beautiful documentation for common HTML elements, dozens of custom HTML and CSS components, and awesome jQuery plugins.</p>
+                                <p>With Bootstrap, you get extensive and beautiful documentation for common HTML elements, dozens of custom HTML and CSS components, and dependency-free JavaScript plugins.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row cm-fix-height">
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                        <a href="dashboard-sales.html" class="panel panel-default thumbnail cm-thumbnail">
-                            <div class="panel-body text-center">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <a href="dashboard-sales.html" class="card cm-thumbnail">
+                            <div class="card-body text-center">
                                 <span class="svg-48">
-                                    <img src="assets/img/sf/dashboard.svg" alt="dashboard">
+                                    <img src="../dist/img/sf/dashboard.svg" alt="dashboard">
                                 </span>
-                                <h4>Dashboard</h4> <small>C3.js charts to display some fancy pies.</small>
+                                <h4>Dashboard</h4> <small>KPI cards, sparklines and Chart.js charts.</small>
 
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                        <a href="notepad.html" class="panel panel-default thumbnail cm-thumbnail">
-                            <div class="panel-body text-center">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <a href="notepad.html" class="card cm-thumbnail">
+                            <div class="card-body text-center">
                                 <span class="svg-48">
-                                    <img src="assets/img/sf/notepad.svg" alt="notepad">
+                                    <img src="../dist/img/sf/notepad.svg" alt="notepad">
                                 </span>
-                                <h4>Text editor</h4> <small>Summernote WYSIWYG Editor implementation.</small>
+                                <h4>Text editor</h4> <small>Quill WYSIWYG editor implementation.</small>
 
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                        <a href="components-text.html" class="panel panel-default thumbnail cm-thumbnail">
-                            <div class="panel-body text-center">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <a href="components-text.html" class="card cm-thumbnail">
+                            <div class="card-body text-center">
                                 <span class="svg-48">
-                                    <img src="assets/img/sf/brick.svg" alt="brick">
+                                    <img src="../dist/img/sf/brick.svg" alt="brick">
                                 </span>
                                 <h4>Components</h4> <small>Bootstrap main classes.</small>
 
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                        <a href="layouts-breadcrumb1.html" class="panel panel-default thumbnail cm-thumbnail">
-                            <div class="panel-body text-center">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <a href="layouts-breadcrumb1.html" class="card cm-thumbnail">
+                            <div class="card-body text-center">
                                 <span class="svg-48">
-                                    <img src="assets/img/sf/window-layout.svg" alt="window-layout">
+                                    <img src="../dist/img/sf/window-layout.svg" alt="window-layout">
                                 </span>
                                 <h4>Navbar layouts</h4> <small>Put all you need on the top of your screen.</small>
 
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                        <a href="ico-sf.html" class="panel panel-default thumbnail cm-thumbnail">
-                            <div class="panel-body text-center">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <a href="ico-sf.html" class="card cm-thumbnail">
+                            <div class="card-body text-center">
                                 <span class="svg-48">
-                                    <img src="assets/img/sf/cat.svg" alt="cat">
+                                    <img src="../dist/img/sf/cat.svg" alt="cat">
                                 </span>
                                 <h4>Icons</h4> <small>Semantic little pics.</small>
 
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                        <a href="login.html" class="panel panel-default thumbnail cm-thumbnail">
-                            <div class="panel-body text-center">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        <a href="login.html" class="card cm-thumbnail">
+                            <div class="card-body text-center">
                                 <span class="svg-48">
-                                    <img src="assets/img/sf/lock-open.svg" alt="lock-open">
+                                    <img src="../dist/img/sf/lock-open.svg" alt="lock-open">
                                 </span>
                                 <h4>Login page</h4> <small>Have a look to the login page.</small>
 
@@ -210,63 +210,60 @@
                         </a>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Check our fancy colors</div>
-                    <div class="panel-body" id="demo-buttons">
+                <div class="card">
+                    <div class="card-header">Check our fancy colors</div>
+                    <div class="card-body" id="demo-buttons">
                         <p>Click buttons below to change navbar main color :</p>
                         <div class="row">
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-primary" data-switch-color="primary">primary</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-primary" data-switch-color="primary">primary</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-success" data-switch-color="success">success</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-success" data-switch-color="success">success</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-info" data-switch-color="info">info</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-info" data-switch-color="info">info</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-warning" data-switch-color="warning">warning</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-warning" data-switch-color="warning">warning</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-danger" data-switch-color="danger">danger</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-danger" data-switch-color="danger">danger</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-gray" data-switch-color="gray">gray</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-gray" data-switch-color="gray">gray</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-yellow" data-switch-color="yellow">yellow</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-yellow" data-switch-color="yellow">yellow</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-purple" data-switch-color="purple">purple</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-purple" data-switch-color="purple">purple</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-turquoise" data-switch-color="turquoise">turquoise</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-turquoise" data-switch-color="turquoise">turquoise</button>
                                 <br>
                             </div>
-                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                                <button class="btn btn-block btn-midnight" data-switch-color="midnight">midnight</button>
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                                <button class="btn w-100 btn-midnight" data-switch-color="midnight">midnight</button>
                                 <br>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
         </div>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/jquery.mousewheel.min.js"></script>
-        <script src="assets/js/jquery.cookie.min.js"></script>
-        <script src="assets/js/fastclick.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/clearmin.min.js"></script>
-        <script src="assets/js/demo/home.js"></script>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
+        <script src="assets/js/home.js"></script>
     </body>
 </html>

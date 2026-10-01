@@ -1,0 +1,45 @@
+// Docked menu from $cm-desktop-breakpoint and up; condensed to a
+// $cm-navbar-height wide icon bar when `body.cm-menu-toggled`.
+
+@include media-breakpoint-down($cm-desktop-breakpoint) {
+  body.cm-scroll-lock {
+    overflow: hidden;
+  }
+}
+
+@include media-breakpoint-up($cm-desktop-breakpoint) {
+  #cm-menu {
+    transform: translateX($cm-menu-width);
+  }
+
+  #cm-header {
+    left: $cm-menu-width;
+  }
+
+  #global {
+    margin-left: $cm-menu-width;
+    transition: margin-left $cm-translen-global;
+  }
+
+  body.cm-menu-toggled {
+    #cm-menu {
+      transform: translateX($cm-navbar-height);
+    }
+
+    #cm-menu-items-wrapper {
+      transform: translateX($cm-menu-width - $cm-navbar-height);
+    }
+
+    #cm-header {
+      left: $cm-navbar-height;
+    }
+
+    #global {
+      margin-left: $cm-navbar-height;
+    }
+
+    .cm-submenu.pre-open ul {
+      display: none !important;
+    }
+  }
+}

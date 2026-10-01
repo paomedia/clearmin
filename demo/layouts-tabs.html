@@ -2,19 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
         <title>Clearmin template</title>
     </head>
     <body class="cm-no-transition cm-2-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
-                <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </nav>
             <div id="cm-menu-content">
                 <div id="cm-menu-items-wrapper">
@@ -22,6 +23,7 @@
                         <ul class="cm-menu-items">
                             <li><a href="index.html" class="sf-house">Home</a></li>
                             <li><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li><a href="tables.html" class="sf-database">Data tables</a></li>
                             <li><a href="components-text.html" class="sf-brick">Components</a></li>
                             <li class="cm-submenu pre-open">
                                 <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
@@ -35,7 +37,6 @@
                                 <a class="sf-cat">Icons <span class="caret"></span></a>
                                 <ul>
                                     <li><a href="ico-sf.html">Small-n-flat</a></li>
-                                    <li><a href="ico-md.html">Material Design</a></li>
                                     <li><a href="ico-fa.html">Font Awesome</a></li>
                                 </ul>
                             </li>
@@ -48,60 +49,59 @@
         </div>
         <header id="cm-header">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <div class="cm-flex">
                     <h1>Togglable tabs</h1> 
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
                 </div>
-                <div class="pull-right">
-                    <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"> <span class="label label-danger">23</span> </button>
-                    <div class="popover cm-popover bottom">
-                        <div class="arrow"></div>
-                        <div class="popover-content">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading text-overflow">
-                                        <i class="fa fa-fw fa-envelope"></i> Nunc volutpat aliquet magna.
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
                                     </h4>
-                                    <p class="list-group-item-text text-overflow">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-envelope"></i> Aliquam orci lectus
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
                                     </h4>
                                     <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-warning"></i> Holy guacamole !
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
                                     </h4>
                                     <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
                                 </a>
                             </div>
-                            <div style="padding:10px"><a class="btn btn-success btn-block" href="#">Show me more...</a></div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
-                        </li>
-                        <li class="divider"></li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -110,9 +110,9 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#lorem" data-toggle="tab">Pellentesque</a></li>
-                            <li><a href="#ipsum" data-toggle="tab">habitant morbi</a></li>
-                            <li><a href="#dolor" data-toggle="tab">malesuada</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#lorem" data-bs-toggle="tab">Pellentesque</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#ipsum" data-bs-toggle="tab">habitant morbi</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#dolor" data-bs-toggle="tab">malesuada</a></li>
                         </ul>
                     </div>
                 </div>
@@ -121,9 +121,9 @@
         <div id="global">
             <div class="container-fluid">
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="lorem" style="margin-top:20px">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                    <div class="tab-pane fade show active" id="lorem" style="margin-top:20px">
+                        <div class="card">
+                            <div class="card-body">
                                 <h1 style="margin-top:0">HTML Ipsum Presents</h1> 
                                 <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
                                 <h2>Header Level 2</h2> 
@@ -131,7 +131,7 @@
                                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                                     <li>Aliquam tincidunt mauris eu risus.</li>
                                 </ol>
-                                <blockquote>
+                                <blockquote class="blockquote">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
                                 </blockquote>
                                 <h3>Header Level 3</h3> 
@@ -143,8 +143,8 @@
 </code></pre>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                        <div class="card">
+                            <div class="card-body">
                                 <h1 style="margin-top:0">HTML Ipsum Presents</h1> 
                                 <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
                                 <h2>Header Level 2</h2> 
@@ -152,7 +152,7 @@
                                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                                     <li>Aliquam tincidunt mauris eu risus.</li>
                                 </ol>
-                                <blockquote>
+                                <blockquote class="blockquote">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
                                 </blockquote>
                                 <h3>Header Level 3</h3> 
@@ -164,8 +164,8 @@
 </code></pre>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                        <div class="card">
+                            <div class="card-body">
                                 <h1 style="margin-top:0">HTML Ipsum Presents</h1> 
                                 <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
                                 <h2>Header Level 2</h2> 
@@ -173,7 +173,7 @@
                                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                                     <li>Aliquam tincidunt mauris eu risus.</li>
                                 </ol>
-                                <blockquote>
+                                <blockquote class="blockquote">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
                                 </blockquote>
                                 <h3>Header Level 3</h3> 
@@ -186,39 +186,39 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade in active" id="ipsum" style="margin-top:20px">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                    <div class="tab-pane fade show active" id="ipsum" style="margin-top:20px">
+                        <div class="card">
+                            <div class="card-body">
                                 <h2 style="margin-top:0">Header Level 2</h2> 
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                        <div class="card">
+                            <div class="card-body">
                                 <h2 style="margin-top:0">Header Level 2</h2> 
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                        <div class="card">
+                            <div class="card-body">
                                 <h2 style="margin-top:0">Header Level 2</h2> 
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                        <div class="card">
+                            <div class="card-body">
                                 <h2 style="margin-top:0">Header Level 2</h2> 
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade in active" id="dolor" style="margin-top:20px">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                    <div class="tab-pane fade show active" id="dolor" style="margin-top:20px">
+                        <div class="card">
+                            <div class="card-body">
                                 <h2 style="margin-top:0">Aliquam erat volutpat</h2>
 
                                 <ul>
@@ -235,8 +235,8 @@
                                 </dl>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                        <div class="card">
+                            <div class="card-body">
                                 <h2 style="margin-top:0">Aliquam erat volutpat</h2>
 
                                 <ul>
@@ -256,13 +256,10 @@
                     </div>
                 </div>
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
         </div>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/jquery.mousewheel.min.js"></script>
-        <script src="assets/js/jquery.cookie.min.js"></script>
-        <script src="assets/js/fastclick.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/clearmin.min.js"></script>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
     </body>
 </html>

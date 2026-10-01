@@ -1,0 +1,176 @@
+@use "sass:color";
+@use "sass:map";
+
+// Dark mode: jewel tone components and a few glowing accents
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    // Jewel tone buttons and navbars
+    @each $color, $value in $cm-theme-colors-dark {
+      .btn-#{$color} {
+        @include button-variant($value, $value);
+      }
+
+      .btn-outline-#{$color} {
+        @include button-outline-variant(tint-color($value, 25%));
+      }
+
+      .cm-navbar-#{$color} {
+        @include cm-navbar-variant($value);
+
+        #cm-search {
+          background: color.adjust($value, $lightness: -8%);
+        }
+      }
+    }
+
+    // Default (primary) header and menu navbars take a calmer color
+    @if $cm-navbar-dark-color {
+      $navbar-color: map.get($cm-theme-colors-dark, $cm-navbar-dark-color);
+
+      #cm-header .cm-navbar-primary,
+      #cm-menu .cm-navbar-primary {
+        @include cm-navbar-variant($navbar-color);
+
+        .btn-primary {
+          @include button-variant($navbar-color, $navbar-color);
+        }
+
+        #cm-search {
+          background: color.adjust($navbar-color, $lightness: -6%);
+        }
+      }
+    }
+
+    // Contextual colors: luminous text, jewel tinted table rows
+    @each $color, $value in $cm-theme-colors-dark {
+      .text-#{$color},
+      .link-#{$color} {
+        color: var(--#{$prefix}#{$color}-text-emphasis) !important;
+      }
+    }
+
+    @each $color in success, info, warning, danger, primary {
+      @include table-variant($color, color.mix(map.get($cm-theme-colors-dark, $color), $body-bg-dark, 28%));
+    }
+
+    // Form validation icons in the luminous tones
+    $cm-icon-valid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='#{$form-valid-color-dark}' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>");
+    $cm-icon-invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#{$form-invalid-color-dark}' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-invalid-color-dark}' stroke='none'/></svg>");
+
+    .form-control.is-valid,
+    .was-validated .form-control:valid {
+      background-image: escape-svg($cm-icon-valid);
+    }
+
+    .form-control.is-invalid,
+    .was-validated .form-control:invalid {
+      background-image: escape-svg($cm-icon-invalid);
+    }
+
+    // Thinner active indicators (menu item, navbar tab)
+    .cm-menu-items li.active > a,
+    .cm-menu-items li > a.active {
+      box-shadow: inset $cm-underliner-height-dark 0 0 var(--#{$prefix}primary);
+    }
+
+    .cm-navbar .nav-tabs .nav-link.active {
+      box-shadow: inset 0 (-$cm-underliner-height-dark) 0 var(--#{$prefix}primary);
+    }
+
+    // Components compiled with the light $primary
+    .form-check-input:checked,
+    .form-check-input[type="checkbox"]:indeterminate {
+      background-color: var(--#{$prefix}primary);
+      border-color: var(--#{$prefix}primary);
+    }
+
+    .form-control:focus,
+    .form-select:focus,
+    .form-check-input:focus {
+      border-color: rgba(var(--#{$prefix}primary-rgb), .7);
+      box-shadow: 0 0 0 $input-btn-focus-width var(--#{$prefix}focus-ring-color);
+    }
+
+    .form-switch .form-check-input:focus:not(:checked) {
+      --#{$prefix}form-switch-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='rgba(255,255,255,.4)'/></svg>");
+    }
+
+    .pagination {
+      --#{$prefix}pagination-active-bg: var(--#{$prefix}primary);
+      --#{$prefix}pagination-active-border-color: var(--#{$prefix}primary);
+      --#{$prefix}pagination-focus-box-shadow: 0 0 0 .25rem var(--#{$prefix}focus-ring-color);
+    }
+
+    .nav-pills {
+      --#{$prefix}nav-pills-link-active-bg: var(--#{$prefix}primary);
+    }
+
+    .list-group {
+      --#{$prefix}list-group-active-bg: var(--#{$prefix}primary);
+      --#{$prefix}list-group-active-border-color: var(--#{$prefix}primary);
+    }
+
+    .progress,
+    .progress-stacked {
+      --#{$prefix}progress-bar-bg: var(--#{$prefix}primary);
+    }
+
+    .dropdown-menu {
+      --#{$prefix}dropdown-box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+    }
+
+    .tooltip {
+      --#{$prefix}tooltip-bg: #{$cm-subtle-bg-dark};
+      --#{$prefix}tooltip-color: var(--#{$prefix}emphasis-color);
+    }
+
+    // Depth: cards and popovers float above the ink background
+    .card,
+    .cm-container-white {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .03), 0 4px 14px rgba(0, 0, 0, .35);
+    }
+
+    .cm-popover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .55);
+    }
+
+    // Colored navbars get a soft top sheen
+    .cm-navbar:not(.cm-navbar-default) {
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0));
+      border-color: rgba(0, 0, 0, .35);
+    }
+
+    @if $cm-glow-dark {
+      // Aurora glow in the page background
+      body {
+        background:
+          radial-gradient(60rem 30rem at 100% 0, rgba(var(--#{$prefix}primary-rgb), .14), transparent 70%),
+          radial-gradient(50rem 30rem at 0 100%, rgba(var(--#{$prefix}purple-rgb), .1), transparent 70%),
+          var(--cm-body-bg);
+        background-attachment: fixed;
+      }
+
+      // Active menu item and tabs light up
+      .cm-menu-items li.active > a,
+      .cm-menu-items li > a.active {
+        background-image: linear-gradient(90deg, rgba(var(--#{$prefix}primary-rgb), .22), rgba(var(--#{$prefix}primary-rgb), 0) 75%);
+        box-shadow: inset $cm-underliner-height-dark 0 0 var(--#{$prefix}primary), inset ($cm-underliner-height-dark + 6px) 0 12px -6px rgba(var(--#{$prefix}primary-rgb), .8);
+      }
+
+      .cm-navbar .nav-tabs .nav-link.active {
+        background-image: linear-gradient(0deg, rgba(var(--#{$prefix}primary-rgb), .18), rgba(var(--#{$prefix}primary-rgb), 0) 70%);
+        box-shadow: inset 0 (-$cm-underliner-height-dark) 0 var(--#{$prefix}primary), inset 0 (-$cm-underliner-height-dark - 6px) 12px -6px rgba(var(--#{$prefix}primary-rgb), .8);
+      }
+
+      // KPI icons glow in their own color
+      .cm-stat-icon {
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, .04), 0 0 22px -4px currentcolor;
+      }
+
+      .cm-navbar .btn .badge {
+        box-shadow: 0 0 10px rgba(var(--#{$prefix}danger-rgb), .8);
+      }
+    }
+  }
+}

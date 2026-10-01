@@ -1,0 +1,114 @@
+// `.cm-popover`: a popover-looking panel opened by a navbar dropdown toggle
+// (arrow on top) or used for the condensed menu submenus (`.cm-popover-end`,
+// arrow on the left).
+
+$cm-popover-arrow-width:        11px;
+$cm-popover-arrow-outer-color:  rgba($black, .25);
+$cm-popover-translation:        100px;
+
+.cm-popover {
+  position: absolute;
+  width: $cm-popover-width;
+  max-width: calc(100vw - 20px);
+  padding: 0;
+  color: var(--#{$prefix}body-color);
+  background: var(--cm-surface);
+  border: 1px solid $popover-border-color;
+  @include border-radius($border-radius-lg);
+  box-shadow: 0 5px 10px rgba($black, .2);
+  transition: transform $cm-translen-widget, opacity $cm-translen-widget, visibility $cm-translen-widget;
+
+  > .cm-popover-arrow,
+  > .cm-popover-arrow::after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+
+  > .cm-popover-arrow {
+    top: -$cm-popover-arrow-width;
+    left: 50%;
+    margin-left: -$cm-popover-arrow-width;
+    border-width: 0 $cm-popover-arrow-width $cm-popover-arrow-width;
+    border-bottom-color: $cm-popover-arrow-outer-color;
+
+    &::after {
+      top: 1px;
+      margin-left: -($cm-popover-arrow-width - 1px);
+      content: "";
+      border-width: 0 ($cm-popover-arrow-width - 1px) ($cm-popover-arrow-width - 1px);
+      border-bottom-color: var(--cm-surface);
+    }
+  }
+}
+
+.cm-popover-end > .cm-popover-arrow {
+  top: 50%;
+  left: -$cm-popover-arrow-width;
+  margin-top: -$cm-popover-arrow-width;
+  margin-left: 0;
+  border-width: $cm-popover-arrow-width $cm-popover-arrow-width $cm-popover-arrow-width 0;
+  border-color: transparent;
+  border-right-color: $cm-popover-arrow-outer-color;
+
+  &::after {
+    top: auto;
+    bottom: -($cm-popover-arrow-width - 1px);
+    left: 1px;
+    margin-left: 0;
+    border-width: ($cm-popover-arrow-width - 1px) ($cm-popover-arrow-width - 1px) ($cm-popover-arrow-width - 1px) 0;
+    border-color: transparent;
+    border-right-color: var(--cm-surface);
+  }
+}
+
+// In a navbar, centered under its toggle button and sliding up when opened
+.cm-navbar .dropdown-menu.cm-popover {
+  top: $cm-navbar-height + $cm-popover-arrow-width;
+  left: calc(50% - #{$cm-popover-width * .5});
+  transform: translateY($cm-popover-translation);
+  @include border-radius($border-radius-lg);
+
+  &.show {
+    transform: none;
+  }
+}
+
+// Notifications-like content
+.cm-popover {
+  .list-group {
+    margin: 0;
+    @include border-radius(0);
+  }
+
+  .list-group-item {
+    border-width: 1px 0 0;
+    @include border-radius(0);
+
+    &:first-child {
+      border-top-width: 0;
+    }
+
+    &:last-child {
+      border-bottom-width: 1px;
+    }
+  }
+
+  .list-group-item-heading {
+    margin: 0;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-base;
+  }
+
+  .list-group-item-text {
+    display: block;
+    margin: 0;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+    color: var(--cm-muted);
+  }
+}

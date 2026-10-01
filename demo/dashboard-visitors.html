@@ -2,19 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
         <title>Clearmin template</title>
     </head>
     <body class="cm-no-transition cm-2-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
-                <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </nav>
             <div id="cm-menu-content">
                 <div id="cm-menu-items-wrapper">
@@ -22,6 +23,7 @@
                         <ul class="cm-menu-items">
                             <li><a href="index.html" class="sf-house">Home</a></li>
                             <li class="active"><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li><a href="tables.html" class="sf-database">Data tables</a></li>
                             <li><a href="components-text.html" class="sf-brick">Components</a></li>
                             <li class="cm-submenu">
                                 <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
@@ -35,7 +37,6 @@
                                 <a class="sf-cat">Icons <span class="caret"></span></a>
                                 <ul>
                                     <li><a href="ico-sf.html">Small-n-flat</a></li>
-                                    <li><a href="ico-md.html">Material Design</a></li>
                                     <li><a href="ico-fa.html">Font Awesome</a></li>
                                 </ul>
                             </li>
@@ -48,60 +49,59 @@
         </div>
         <header id="cm-header">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <div class="cm-flex">
                     <h1>Dashboard</h1> 
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
                 </div>
-                <div class="pull-right">
-                    <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"> <span class="label label-danger">23</span> </button>
-                    <div class="popover cm-popover bottom">
-                        <div class="arrow"></div>
-                        <div class="popover-content">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading text-overflow">
-                                        <i class="fa fa-fw fa-envelope"></i> Nunc volutpat aliquet magna.
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
                                     </h4>
-                                    <p class="list-group-item-text text-overflow">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-envelope"></i> Aliquam orci lectus
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
                                     </h4>
                                     <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-warning"></i> Holy guacamole !
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
                                     </h4>
                                     <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
                                 </a>
                             </div>
-                            <div style="padding:10px"><a class="btn btn-success btn-block" href="#">Show me more...</a></div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
-                        </li>
-                        <li class="divider"></li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -110,92 +110,275 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                            <li><a href="dashboard-sales.html">Sales analytics</a></li>
-                            <li class="active"><a href="dashboard-visitors.html">Website Visitors</a></li>
-                            <li><a href="dashboard-server_stats.html">Server Stats</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dashboard-sales.html">Sales analytics</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="dashboard-visitors.html">Website Visitors</a></li>
+                            <li class="nav-item"><a class="nav-link" href="dashboard-server_stats.html">Server Stats</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="pull-right" style="border-left:1px solid #e5e5e5"><a title="Download as PDF" class="btn btn-default btn-light md-file-download"></a></div>
-                <div class="pull-right"><a title="Customize indicators" class="btn btn-default btn-light md-settings"></a></div>
+                <div style="border-left:1px solid var(--cm-border-light)"><a title="Download as PDF" class="btn btn-default btn-faded"><i class="fa-solid fa-download" aria-hidden="true"></i></a></div>
+                <div><a title="Customize indicators" class="btn btn-default btn-faded"><i class="fa-solid fa-gear" aria-hidden="true"></i></a></div>
             </nav>
         </header>
         <div id="global">
             <div class="container-fluid">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h1 style="margin-top:10px">HTML Ipsum Presents</h1> 
-                        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
-                        <h2>Header Level 2</h2> 
-                        <ol>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ol>
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
-                        </blockquote>
-                        <h3>Header Level 3</h3> 
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ul>
-                        <pre style="margin-bottom:0"><code>
-#header h1 a { display: block; width: 300px; height: 80px; }
-</code></pre>
+                <div class="row cm-fix-height">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-primary-subtle text-primary-emphasis"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Visitors</div>
+                                <div class="cm-stat-value">24,892</div>
+                                <div class="cm-stat-trend"><span class="text-success fw-bold"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> 9.2%</span> <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="612,640,598,701,688,742,720,765,790,774,812,846" data-color="primary" role="img" aria-label="Visitors trend"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-turquoise-subtle text-turquoise-emphasis"><i class="fa-solid fa-eye" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Page views</div>
+                                <div class="cm-stat-value">81,407</div>
+                                <div class="cm-stat-trend"><span class="text-success fw-bold"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> 6.4%</span> <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="2105,2240,2190,2380,2295,2460,2410,2530,2610,2580,2690,2804" data-color="turquoise" role="img" aria-label="Page views trend"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-warning-subtle text-warning-emphasis"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Bounce rate</div>
+                                <div class="cm-stat-value">38.6%</div>
+                                <div class="cm-stat-trend"><span class="text-success fw-bold"><i class="fa-solid fa-arrow-trend-down" aria-hidden="true"></i> 2.1%</span> <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="42.8,42.1,41.9,41.2,40.8,40.9,40.1,39.7,39.5,39.2,38.9,38.6" data-color="warning" role="img" aria-label="Bounce rate trend"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card cm-stat">
+                            <div class="card-body">
+                                <div class="cm-stat-icon bg-purple-subtle text-purple-emphasis"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i></div>
+                                <div class="cm-stat-label">Avg. session</div>
+                                <div class="cm-stat-value">3m 42s</div>
+                                <div class="cm-stat-trend"><span class="text-success fw-bold"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> 11s</span> <span>vs last month</span></div>
+                                <div class="cm-stat-sparkline"><canvas data-sparkline="188,192,195,193,199,203,201,208,210,214,218,222" data-color="purple" role="img" aria-label="Avg. session trend"></canvas></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h1 style="margin-top:10px">HTML Ipsum Presents</h1> 
-                        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
-                        <h2>Header Level 2</h2> 
-                        <ol>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ol>
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
-                        </blockquote>
-                        <h3>Header Level 3</h3> 
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ul>
-                        <pre style="margin-bottom:0"><code>
-#header h1 a { display: block; width: 300px; height: 80px; }
-</code></pre>
+                <div class="row cm-fix-height">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">Traffic — last 30 days</div>
+                            <div class="card-body">
+                                <div class="cm-chart" style="height:300px"><canvas id="chart-traffic" role="img" aria-label="Daily visitors and page views, last 30 days"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">Right now <span class="badge text-bg-danger float-end cm-live">Live</span></div>
+                            <div class="card-body d-flex flex-column">
+                                <div class="text-center mb-3">
+                                    <div class="display-5 fw-light" id="active-users">147</div>
+                                    <div class="text-body-secondary small">active users on the website</div>
+                                </div>
+                                <div class="cm-chart flex-grow-1" style="min-height:150px"><canvas id="chart-realtime" role="img" aria-label="Active users per minute, last 30 minutes"></canvas></div>
+                                <div class="text-body-secondary small text-center mt-2">Users per minute, last 30 minutes</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h1 style="margin-top:10px">HTML Ipsum Presents</h1> 
-                        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
-                        <h2>Header Level 2</h2> 
-                        <ol>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ol>
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
-                        </blockquote>
-                        <h3>Header Level 3</h3> 
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aliquam tincidunt mauris eu risus.</li>
-                        </ul>
-                        <pre style="margin-bottom:0"><code>
-#header h1 a { display: block; width: 300px; height: 80px; }
-</code></pre>
+                <div class="row cm-fix-height">
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="card">
+                            <div class="card-header">Traffic sources</div>
+                            <div class="card-body d-flex align-items-center">
+                                <div class="cm-chart" style="height:260px"><canvas id="chart-sources" role="img" aria-label="Traffic sources"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="card">
+                            <div class="card-header">Devices</div>
+                            <div class="card-body d-flex align-items-center">
+                                <div class="cm-chart" style="height:260px"><canvas id="chart-devices" role="img" aria-label="Visitors by device"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">Top countries</div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>France</span><span class="text-body-secondary">28.4%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="France" aria-valuenow="28.4" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:28.4%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>United States</span><span class="text-body-secondary">19.1%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="United States" aria-valuenow="19.1" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:19.1%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>Germany</span><span class="text-body-secondary">10.7%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="Germany" aria-valuenow="10.7" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:10.7%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>United Kingdom</span><span class="text-body-secondary">8.9%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="United Kingdom" aria-valuenow="8.9" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:8.9%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>Canada</span><span class="text-body-secondary">6.2%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="Canada" aria-valuenow="6.2" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:6.2%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>Spain</span><span class="text-body-secondary">4.8%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="Spain" aria-valuenow="4.8" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width:4.8%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>Other</span><span class="text-body-secondary">21.9%</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="Other" aria-valuenow="21.9" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-gray" style="width:21.9%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cm-fix-height">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">Top pages</div>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle text-nowrap mb-0" data-cm-table>
+                                    <thead>
+                                        <tr>
+                                            <th data-sort>Page</th>
+                                            <th data-sort="number" class="text-end">Views</th>
+                                            <th data-sort="number" class="text-end">Unique</th>
+                                            <th data-sort="number" class="text-end">Avg. time</th>
+                                            <th data-sort="number" class="text-end">Bounce</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/</a></td>
+                                            <td class="text-end" data-value="18402">18,402</td>
+                                            <td class="text-end" data-value="12931">12,931</td>
+                                            <td class="text-end" data-value="72">1m 12s</td>
+                                            <td class="text-end" data-value="41.2"><span class="text-warning">41.2%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/pricing</a></td>
+                                            <td class="text-end" data-value="9877">9,877</td>
+                                            <td class="text-end" data-value="7402">7,402</td>
+                                            <td class="text-end" data-value="158">2m 38s</td>
+                                            <td class="text-end" data-value="29.5"><span class="text-success">29.5%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/docs/getting-started</a></td>
+                                            <td class="text-end" data-value="7215">7,215</td>
+                                            <td class="text-end" data-value="5118">5,118</td>
+                                            <td class="text-end" data-value="291">4m 51s</td>
+                                            <td class="text-end" data-value="18.7"><span class="text-success">18.7%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/blog/bootstrap-5-3-dark-mode</a></td>
+                                            <td class="text-end" data-value="6904">6,904</td>
+                                            <td class="text-end" data-value="6122">6,122</td>
+                                            <td class="text-end" data-value="185">3m 05s</td>
+                                            <td class="text-end" data-value="62.3"><span class="text-danger">62.3%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/features</a></td>
+                                            <td class="text-end" data-value="5433">5,433</td>
+                                            <td class="text-end" data-value="4010">4,010</td>
+                                            <td class="text-end" data-value="107">1m 47s</td>
+                                            <td class="text-end" data-value="35.9"><span class="text-success">35.9%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/docs/components/navbar</a></td>
+                                            <td class="text-end" data-value="4876">4,876</td>
+                                            <td class="text-end" data-value="3302">3,302</td>
+                                            <td class="text-end" data-value="202">3m 22s</td>
+                                            <td class="text-end" data-value="22.4"><span class="text-success">22.4%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/signup</a></td>
+                                            <td class="text-end" data-value="3941">3,941</td>
+                                            <td class="text-end" data-value="3615">3,615</td>
+                                            <td class="text-end" data-value="58">0m 58s</td>
+                                            <td class="text-end" data-value="12.6"><span class="text-success">12.6%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/blog/vanilla-js-without-jquery</a></td>
+                                            <td class="text-end" data-value="3512">3,512</td>
+                                            <td class="text-end" data-value="3187">3,187</td>
+                                            <td class="text-end" data-value="256">4m 16s</td>
+                                            <td class="text-end" data-value="57.8"><span class="text-danger">57.8%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/contact</a></td>
+                                            <td class="text-end" data-value="2108">2,108</td>
+                                            <td class="text-end" data-value="1876">1,876</td>
+                                            <td class="text-end" data-value="91">1m 31s</td>
+                                            <td class="text-end" data-value="44.0"><span class="text-warning">44.0%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="text-decoration-none">/changelog</a></td>
+                                            <td class="text-end" data-value="1677">1,677</td>
+                                            <td class="text-end" data-value="1203">1,203</td>
+                                            <td class="text-end" data-value="122">2m 02s</td>
+                                            <td class="text-end" data-value="39.3"><span class="text-success">39.3%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">Top referrers</div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>google.com</span><span class="text-body-secondary">9,214</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="google.com" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-turquoise" style="width:100%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>github.com</span><span class="text-body-secondary">3,108</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="github.com" aria-valuenow="33.7" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-turquoise" style="width:33.7%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>news.ycombinator.com</span><span class="text-body-secondary">1,942</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="news.ycombinator.com" aria-valuenow="21.1" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-turquoise" style="width:21.1%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>reddit.com</span><span class="text-body-secondary">1,277</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="reddit.com" aria-valuenow="13.9" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-turquoise" style="width:13.9%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>x.com</span><span class="text-body-secondary">865</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="x.com" aria-valuenow="9.4" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-turquoise" style="width:9.4%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>linkedin.com</span><span class="text-body-secondary">612</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="linkedin.com" aria-valuenow="6.6" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-turquoise" style="width:6.6%"></div></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between small mb-1"><span>Newsletter — September</span><span class="text-body-secondary">548</span></div>
+                                    <div class="progress" style="height:.4rem" role="progressbar" aria-label="Newsletter — September" aria-valuenow="5.9" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-turquoise" style="width:5.9%"></div></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
         </div>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/jquery.mousewheel.min.js"></script>
-        <script src="assets/js/jquery.cookie.min.js"></script>
-        <script src="assets/js/fastclick.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/clearmin.min.js"></script>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
+        <script src="assets/vendor/chart.umd.min.js"></script>
+        <script src="assets/js/charts.js"></script>
+        <script src="assets/js/dashboard-visitors.js"></script>
     </body>
 </html>

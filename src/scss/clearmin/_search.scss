@@ -1,0 +1,53 @@
+@use "sass:color";
+
+// Search bar unfolding over the `.cm-flex` cell of a navbar
+
+#cm-search {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform $cm-translen-global;
+
+  &.open {
+    transform: scaleX(1);
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    height: $cm-navbar-height;
+    padding: 0 0 0 15px;
+    margin: 0;
+    font-size: $cm-title-font-size;
+    line-height: $cm-navbar-height;
+    color: inherit;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+
+    &::placeholder {
+      color: rgba($white, .5);
+    }
+
+    &::selection {
+      background: rgba($black, .2);
+    }
+  }
+}
+
+.cm-navbar-default #cm-search {
+  background: var(--cm-search-default-bg);
+
+  input::placeholder {
+    color: var(--cm-muted);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .cm-navbar-#{$color} #cm-search {
+    background: color.adjust($value, $lightness: -10%);
+  }
+}

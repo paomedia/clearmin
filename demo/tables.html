@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
+        <title>Clearmin template</title>
+    </head>
+    <body class="cm-no-transition cm-1-navbar">
+        <div id="cm-menu">
+            <nav class="cm-navbar cm-navbar-primary">
+                <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+            </nav>
+            <div id="cm-menu-content">
+                <div id="cm-menu-items-wrapper">
+                    <div id="cm-menu-scroller">
+                        <ul class="cm-menu-items">
+                            <li><a href="index.html" class="sf-house">Home</a></li>
+                            <li><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li class="active"><a href="tables.html" class="sf-database">Data tables</a></li>
+                            <li><a href="components-text.html" class="sf-brick">Components</a></li>
+                            <li class="cm-submenu">
+                                <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
+                                <ul>
+                                    <li><a href="layouts-breadcrumb1.html">1st nav breadcrumb</a></li>
+                                    <li><a href="layouts-breadcrumb2.html">2nd nav breadcrumb</a></li>
+                                    <li><a href="layouts-tabs.html">2nd nav tabs</a></li>
+                                </ul>
+                            </li>
+                            <li class="cm-submenu">
+                                <a class="sf-cat">Icons <span class="caret"></span></a>
+                                <ul>
+                                    <li><a href="ico-sf.html">Small-n-flat</a></li>
+                                    <li><a href="ico-fa.html">Font Awesome</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="notepad.html" class="sf-notepad">Text Editor</a></li>
+                            <li><a href="login.html" class="sf-lock-open">Login page</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header id="cm-header">
+            <nav class="cm-navbar cm-navbar-primary">
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+                <div class="cm-flex">
+                    <h1>Customers</h1> 
+                    <form id="cm-search" action="index.html" method="get">
+                        <input type="search" name="q" autocomplete="off" placeholder="Search...">
+                    </form>
+                </div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                </div>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
+                                    </h4>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
+                                    </h4>
+                                    <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
+                                    </h4>
+                                    <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
+                                </a>
+                            </div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="global">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header">Customers</div>
+                    <div class="card-body">
+                        <div class="row g-2 align-items-center mb-3">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+                                    <input type="search" class="form-control" placeholder="Filter customers..." aria-label="Filter customers" data-cm-table-filter="#customers">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-8 text-md-end">
+                                <button type="button" class="btn btn-default" data-cm-toast="customers.csv is being generated, you will be notified when it is ready." data-cm-toast-title="Export started" data-cm-toast-color="info"><i class="fa-solid fa-download" aria-hidden="true"></i> Export</button>
+                                <button type="button" class="btn btn-primary" data-cm-toast="Jane Doe has been added to your customers." data-cm-toast-title="Customer created" data-cm-toast-color="success"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add customer</button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="customers" class="table table-hover align-middle text-nowrap" data-cm-table data-cm-page-size="10">
+                                <thead>
+                                    <tr>
+                                        <th data-sort>Name</th>
+                                        <th data-sort>Email</th>
+                                        <th data-sort>Country</th>
+                                        <th data-sort>Plan</th>
+                                        <th data-sort="number" class="text-end">MRR</th>
+                                        <th data-sort="date">Customer since</th>
+                                        <th data-sort>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Chloé Rossi</td>
+                                        <td class="text-body-secondary">chloe.rossi@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="3129">$3,129</td>
+                                        <td data-value="2024-02-27">Feb 27, 2024</td>
+                                        <td><span class="badge text-bg-warning">Past due</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Louis Bernard</td>
+                                        <td class="text-body-secondary">louis.bernard@example.com</td>
+                                        <td>Italy</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="38">$38</td>
+                                        <td data-value="2024-07-14">Jul 14, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Olivia Andersen</td>
+                                        <td class="text-body-secondary">olivia.andersen@example.com</td>
+                                        <td>Brazil</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2023-02-08">Feb 8, 2023</td>
+                                        <td><span class="badge text-bg-secondary">Canceled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Liam Novak</td>
+                                        <td class="text-body-secondary">liam.novak@example.com</td>
+                                        <td>Portugal</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2024-01-18">Jan 18, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mateo Rossi</td>
+                                        <td class="text-body-secondary">mateo.rossi@example.com</td>
+                                        <td>Spain</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2023-05-18">May 18, 2023</td>
+                                        <td><span class="badge text-bg-secondary">Canceled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Noah Silva</td>
+                                        <td class="text-body-secondary">noah.silva@example.com</td>
+                                        <td>France</td>
+                                        <td>Pro</td>
+                                        <td class="text-end" data-value="196">$196</td>
+                                        <td data-value="2023-12-03">Dec 3, 2023</td>
+                                        <td><span class="badge text-bg-warning">Past due</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adam Silva</td>
+                                        <td class="text-body-secondary">adam.silva@example.com</td>
+                                        <td>United States</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="3278">$3,278</td>
+                                        <td data-value="2023-07-25">Jul 25, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inès Costa</td>
+                                        <td class="text-body-secondary">ines.costa@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Pro</td>
+                                        <td class="text-end" data-value="490">$490</td>
+                                        <td data-value="2024-03-23">Mar 23, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inès Johnson</td>
+                                        <td class="text-body-secondary">ines.johnson@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="1639">$1,639</td>
+                                        <td data-value="2023-08-10">Aug 10, 2023</td>
+                                        <td><span class="badge text-bg-warning">Past due</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Noah Andersen</td>
+                                        <td class="text-body-secondary">noah.andersen@example.com</td>
+                                        <td>France</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="475">$475</td>
+                                        <td data-value="2025-03-16">Mar 16, 2025</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gabriel Dubois</td>
+                                        <td class="text-body-secondary">gabriel.dubois@example.com</td>
+                                        <td>Brazil</td>
+                                        <td>Pro</td>
+                                        <td class="text-end" data-value="539">$539</td>
+                                        <td data-value="2023-06-20">Jun 20, 2023</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alice Dubois</td>
+                                        <td class="text-body-secondary">alice.dubois@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2025-08-23">Aug 23, 2025</td>
+                                        <td><span class="badge text-bg-secondary">Canceled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Liam Johnson</td>
+                                        <td class="text-body-secondary">liam.johnson@example.com</td>
+                                        <td>France</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="1490">$1,490</td>
+                                        <td data-value="2023-07-22">Jul 22, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alice Kim</td>
+                                        <td class="text-body-secondary">alice.kim@example.com</td>
+                                        <td>Portugal</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="380">$380</td>
+                                        <td data-value="2024-08-02">Aug 2, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ava Kowalski</td>
+                                        <td class="text-body-secondary">ava.kowalski@example.com</td>
+                                        <td>Canada</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="1937">$1,937</td>
+                                        <td data-value="2025-02-06">Feb 6, 2025</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Leo Smith</td>
+                                        <td class="text-body-secondary">leo.smith@example.com</td>
+                                        <td>Belgium</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="266">$266</td>
+                                        <td data-value="2023-05-23">May 23, 2023</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gabriel Novak</td>
+                                        <td class="text-body-secondary">gabriel.novak@example.com</td>
+                                        <td>Italy</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="95">$95</td>
+                                        <td data-value="2024-03-05">Mar 5, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emma Moreau</td>
+                                        <td class="text-body-secondary">emma.moreau@example.com</td>
+                                        <td>Japan</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="171">$171</td>
+                                        <td data-value="2025-01-05">Jan 5, 2025</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Louis Nguyen</td>
+                                        <td class="text-body-secondary">louis.nguyen@example.com</td>
+                                        <td>France</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="437">$437</td>
+                                        <td data-value="2023-10-21">Oct 21, 2023</td>
+                                        <td><span class="badge text-bg-secondary">Canceled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alice Novak</td>
+                                        <td class="text-body-secondary">alice.novak@example.com</td>
+                                        <td>Canada</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="1937">$1,937</td>
+                                        <td data-value="2025-02-16">Feb 16, 2025</td>
+                                        <td><span class="badge text-bg-secondary">Canceled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Liam Silva</td>
+                                        <td class="text-body-secondary">liam.silva@example.com</td>
+                                        <td>Belgium</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2024-08-06">Aug 6, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adam Bernard</td>
+                                        <td class="text-body-secondary">adam.bernard@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2024-10-05">Oct 5, 2024</td>
+                                        <td><span class="badge text-bg-warning">Past due</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Louis Martin</td>
+                                        <td class="text-body-secondary">louis.martin@example.com</td>
+                                        <td>Portugal</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2024-10-13">Oct 13, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Louis Kim</td>
+                                        <td class="text-body-secondary">louis.kim@example.com</td>
+                                        <td>United States</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="596">$596</td>
+                                        <td data-value="2024-08-15">Aug 15, 2024</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arthur Dubois</td>
+                                        <td class="text-body-secondary">arthur.dubois@example.com</td>
+                                        <td>United States</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="76">$76</td>
+                                        <td data-value="2023-06-24">Jun 24, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lina Müller</td>
+                                        <td class="text-body-secondary">lina.muller@example.com</td>
+                                        <td>Japan</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2024-09-12">Sep 12, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emma Johnson</td>
+                                        <td class="text-body-secondary">emma.johnson@example.com</td>
+                                        <td>Spain</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2023-05-17">May 17, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Louis Kowalski</td>
+                                        <td class="text-body-secondary">louis.kowalski@example.com</td>
+                                        <td>Italy</td>
+                                        <td>Pro</td>
+                                        <td class="text-end" data-value="1029">$1,029</td>
+                                        <td data-value="2024-10-26">Oct 26, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sofia Kowalski</td>
+                                        <td class="text-body-secondary">sofia.kowalski@example.com</td>
+                                        <td>France</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="323">$323</td>
+                                        <td data-value="2025-06-24">Jun 24, 2025</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Léa Moreau</td>
+                                        <td class="text-body-secondary">lea.moreau@example.com</td>
+                                        <td>Belgium</td>
+                                        <td>Pro</td>
+                                        <td class="text-end" data-value="343">$343</td>
+                                        <td data-value="2023-10-12">Oct 12, 2023</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Louis Dubois</td>
+                                        <td class="text-body-secondary">louis.dubois@example.com</td>
+                                        <td>Italy</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="76">$76</td>
+                                        <td data-value="2024-08-07">Aug 7, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jules Martin</td>
+                                        <td class="text-body-secondary">jules.martin@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="3129">$3,129</td>
+                                        <td data-value="2025-11-03">Nov 3, 2025</td>
+                                        <td><span class="badge text-bg-secondary">Canceled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sofia Silva</td>
+                                        <td class="text-body-secondary">sofia.silva@example.com</td>
+                                        <td>Canada</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="894">$894</td>
+                                        <td data-value="2025-11-11">Nov 11, 2025</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alice Novak</td>
+                                        <td class="text-body-secondary">alice.novak@example.com</td>
+                                        <td>France</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2023-03-06">Mar 6, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ava Costa</td>
+                                        <td class="text-body-secondary">ava.costa@example.com</td>
+                                        <td>Spain</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="380">$380</td>
+                                        <td data-value="2023-08-22">Aug 22, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Leo Rossi</td>
+                                        <td class="text-body-secondary">leo.rossi@example.com</td>
+                                        <td>Japan</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2024-12-21">Dec 21, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ethan Rossi</td>
+                                        <td class="text-body-secondary">ethan.rossi@example.com</td>
+                                        <td>Portugal</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="1043">$1,043</td>
+                                        <td data-value="2024-01-09">Jan 9, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nora Kowalski</td>
+                                        <td class="text-body-secondary">nora.kowalski@example.com</td>
+                                        <td>France</td>
+                                        <td>Pro</td>
+                                        <td class="text-end" data-value="441">$441</td>
+                                        <td data-value="2023-07-27">Jul 27, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ethan Kim</td>
+                                        <td class="text-body-secondary">ethan.kim@example.com</td>
+                                        <td>Spain</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="3278">$3,278</td>
+                                        <td data-value="2023-09-14">Sep 14, 2023</td>
+                                        <td><span class="badge text-bg-warning">Past due</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Leo Rossi</td>
+                                        <td class="text-body-secondary">leo.rossi@example.com</td>
+                                        <td>Spain</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2025-03-20">Mar 20, 2025</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lucas Rossi</td>
+                                        <td class="text-body-secondary">lucas.rossi@example.com</td>
+                                        <td>Belgium</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="2980">$2,980</td>
+                                        <td data-value="2023-02-18">Feb 18, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gabriel Moreau</td>
+                                        <td class="text-body-secondary">gabriel.moreau@example.com</td>
+                                        <td>Portugal</td>
+                                        <td>Free</td>
+                                        <td class="text-end" data-value="0">$0</td>
+                                        <td data-value="2023-01-08">Jan 8, 2023</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Liam Garcia</td>
+                                        <td class="text-body-secondary">liam.garcia@example.com</td>
+                                        <td>Brazil</td>
+                                        <td>Business</td>
+                                        <td class="text-end" data-value="2682">$2,682</td>
+                                        <td data-value="2024-02-15">Feb 15, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nora Silva</td>
+                                        <td class="text-body-secondary">nora.silva@example.com</td>
+                                        <td>Japan</td>
+                                        <td>Pro</td>
+                                        <td class="text-end" data-value="735">$735</td>
+                                        <td data-value="2023-09-26">Sep 26, 2023</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hugo Smith</td>
+                                        <td class="text-body-secondary">hugo.smith@example.com</td>
+                                        <td>United States</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="285">$285</td>
+                                        <td data-value="2024-07-04">Jul 4, 2024</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chloé Dubois</td>
+                                        <td class="text-body-secondary">chloe.dubois@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="266">$266</td>
+                                        <td data-value="2024-04-22">Apr 22, 2024</td>
+                                        <td><span class="badge text-bg-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ava Kim</td>
+                                        <td class="text-body-secondary">ava.kim@example.com</td>
+                                        <td>Germany</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="171">$171</td>
+                                        <td data-value="2024-08-08">Aug 8, 2024</td>
+                                        <td><span class="badge text-bg-secondary">Canceled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sofia Moreau</td>
+                                        <td class="text-body-secondary">sofia.moreau@example.com</td>
+                                        <td>Japan</td>
+                                        <td>Starter</td>
+                                        <td class="text-end" data-value="418">$418</td>
+                                        <td data-value="2024-03-23">Mar 23, 2024</td>
+                                        <td><span class="badge text-bg-info">Trial</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-info shadowed" role="alert">
+                    <i class="fa-solid fa-fw fa-circle-info" aria-hidden="true"></i> Add <code>data-cm-table</code> to a table to make its <code>th[data-sort]</code> columns sortable, <code>data-cm-page-size</code> to paginate it and an <code>input[data-cm-table-filter="#table-id"]</code> to filter it.
+                </div>
+            </div>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
+        </div>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
+    </body>
+</html>

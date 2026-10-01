@@ -2,19 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+    <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+    <link rel="stylesheet" href="../dist/css/roboto.css">
+    <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+    <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
     <title>Clearmin Docs</title>
   </head>
   <body class="cm-no-transition cm-1-navbar">
     <div id="cm-menu">
       <nav class="cm-navbar cm-navbar-primary">
-        <div class="cm-flex cm-logo" style="background-image:url(assets/img/logo.svg)"></div>
-        <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+        <div class="cm-flex cm-logo" style="background-image:url(../dist/img/logo.svg)"></div>
+        <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
       </nav>
       <div id="cm-menu-content">
         <div id="cm-menu-items-wrapper">
@@ -30,16 +30,16 @@
 
 
       <nav class="cm-navbar cm-navbar-primary">
-        <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+        <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
 
 	<div class="dropdown">
-          <button class="btn btn-primary md-add-circle-outline-white" data-toggle="dropdown"></button>
+          <button class="btn btn-primary" data-bs-toggle="dropdown"><i class="fa-solid fa-circle-plus" aria-hidden="true"></i></button>
 	  <ul class="dropdown-menu">
-	    <li><a href="#">Hi there</a></li>
+	    <li><a class="dropdown-item" href="#">Hi there</a></li>
 	  </ul>
 	</div>
 
-        <div class="cm-flex"><h1><i class="fa fa-fw fa-arrow-left"></i> Click this dropdown !</h1></div>
+        <div class="cm-flex"><h1><i class="fa-solid fa-fw fa-arrow-left" aria-hidden="true"></i> Click this dropdown !</h1></div>
       </nav>
 
 
@@ -50,8 +50,9 @@
             <input type="search" name="q" autocomplete="off" placeholder="Search...">
           </form>
 	</div>
-	<div class="pull-right">
-          <div id="cm-search-btn" class="btn btn-yellow md-search-white" data-toggle="cm-search"></div>
+	<button type="button" class="btn btn-yellow" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+	<div>
+          <button type="button" id="cm-search-btn" class="btn btn-yellow" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
         </div>	
       </nav>
 
@@ -60,30 +61,30 @@
         <div class="cm-flex">
 	  <div class="cm-breadcrumb-container">
             <ol class="breadcrumb">
-              <li><a href="#">This thing</a></li>
-              <li><a href="#">Is</a></li>
-              <li><a href="#">A</a></li>
-              <li><a href="#">Pretty</a></li>
-              <li><a href="#">Long breadcrumb</a></li>
-              <li><a href="#">Or some random stuff</a></li>
-              <li><a href="#">Maybe</a></li>
-              <li><a href="#">Overflowing</a></li>
-              <li class="active">Lorem Page</li>
+              <li class="breadcrumb-item"><a href="#">This thing</a></li>
+              <li class="breadcrumb-item"><a href="#">Is</a></li>
+              <li class="breadcrumb-item"><a href="#">A</a></li>
+              <li class="breadcrumb-item"><a href="#">Pretty</a></li>
+              <li class="breadcrumb-item"><a href="#">Long breadcrumb</a></li>
+              <li class="breadcrumb-item"><a href="#">Or some random stuff</a></li>
+              <li class="breadcrumb-item"><a href="#">Maybe</a></li>
+              <li class="breadcrumb-item"><a href="#">Overflowing</a></li>
+              <li class="breadcrumb-item active">Lorem Page</li>
             </ol>
           </div>
 	</div>
 
-	<div class="dropdown pull-right" style="width:150px;border-left:1px solid #ddd">
-          <div class="btn btn-default btn-block" data-toggle="dropdown"><i class="fa fa-fw fa-question-circle"></i> Hey, click me !</div>
+	<div class="dropdown" style="width:150px;border-left:1px solid var(--cm-border-light)">
+          <div class="btn btn-default w-100" data-bs-toggle="dropdown"><i class="fa-solid fa-fw fa-circle-question" aria-hidden="true"></i> Hey, click me !</div>
 	  <ul class="dropdown-menu">
-	    <li><a href="#">Hello</a></li>
-	    <li><a href="#">World</a></li>
+	    <li><a class="dropdown-item" href="#">Hello</a></li>
+	    <li><a class="dropdown-item" href="#">World</a></li>
 	  </ul>
 
 	</div>
-	<div class="pull-right" style="border-left:1px solid #ddd"><div class="btn btn-default md-alarm"></div></div>
-	<div class="pull-right" style="border-left:1px solid #ddd"><div class="btn btn-default md-cached"></div></div>
-	<div class="pull-right" style="border-left:1px solid #ddd"><div class="btn btn-default md-cloud-download"></div></div>
+	<div style="border-left:1px solid var(--cm-border-light)"><div class="btn btn-default"><i class="fa-regular fa-clock" aria-hidden="true"></i></div></div>
+	<div style="border-left:1px solid var(--cm-border-light)"><div class="btn btn-default"><i class="fa-solid fa-rotate" aria-hidden="true"></i></div></div>
+	<div style="border-left:1px solid var(--cm-border-light)"><div class="btn btn-default"><i class="fa-solid fa-cloud-arrow-down" aria-hidden="true"></i></div></div>
 
       </nav>
 
@@ -94,33 +95,33 @@
 	  <h1>Check those popovers</h1>
 	</div>
 
-	<div class="dropdown pull-right">
-          <button class="btn btn-info sf-social-facebook" data-toggle="dropdown"></button>
-          <div class="popover cm-popover bottom">
-            <div class="arrow"></div>
-            <div class="popover-content">
-	      <div style="color:#222;padding:20px;">Hi! #1</div>
+	<div class="dropdown">
+          <button class="btn btn-info sf-social-facebook" data-bs-toggle="dropdown"></button>
+          <div class="dropdown-menu cm-popover">
+            <div class="cm-popover-arrow"></div>
+            <div class="cm-popover-body">
+	      <div style="padding:20px">Hi! #1</div>
 	    </div>
 	  </div>
 	</div>
 
-	<div class="dropdown pull-right">
-          <button class="btn btn-info sf-social-youtube" data-toggle="dropdown"></button>
-          <div class="popover cm-popover bottom">
-            <div class="arrow"></div>
-            <div class="popover-content">
-	      <div style="color:#222;padding:20px;">Hi! #2</div>
+	<div class="dropdown">
+          <button class="btn btn-info sf-social-youtube" data-bs-toggle="dropdown"></button>
+          <div class="dropdown-menu cm-popover">
+            <div class="cm-popover-arrow"></div>
+            <div class="cm-popover-body">
+	      <div style="padding:20px">Hi! #2</div>
 	    </div>
 	  </div>
 	</div>
 
 
-	<div class="dropdown pull-right">
-          <button class="btn btn-info sf-social-google-plus" data-toggle="dropdown"></button>
-          <div class="popover cm-popover bottom">
-            <div class="arrow"></div>
-            <div class="popover-content">
-	      <div style="color:#222;padding:20px;">Hi! #3</div>
+	<div class="dropdown">
+          <button class="btn btn-info sf-social-google-plus" data-bs-toggle="dropdown"></button>
+          <div class="dropdown-menu cm-popover">
+            <div class="cm-popover-arrow"></div>
+            <div class="cm-popover-body">
+	      <div style="padding:20px">Hi! #3</div>
 	    </div>
 	  </div>
 	</div>
@@ -133,13 +134,10 @@
 
     </header>
     <div id="global">
-      <footer class="cm-footer"><span class="pull-right">&copy; ACME Inc.</span></footer>
+      <footer class="cm-footer"><span class="float-end">&copy; ACME Inc.</span></footer>
     </div>
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/jquery.mousewheel.min.js"></script>
-    <script src="assets/js/jquery.cookie.min.js"></script>
-    <script src="assets/js/fastclick.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/clearmin.min.js"></script>
+    <script src="../dist/js/popper.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../dist/js/clearmin.min.js"></script>
   </body>
 </html>

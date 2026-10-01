@@ -1,0 +1,51 @@
+// Scrollable tabs inside a navbar
+
+.cm-navbar {
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .nav-tabs-container {
+    display: block;
+    height: $cm-navbar-height;
+    overflow: hidden;
+  }
+
+  .nav-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    border: 0;
+    -webkit-overflow-scrolling: touch;
+
+    .nav-item {
+      flex: 0 0 auto;
+    }
+
+    .nav-link {
+      padding: 0 $grid-gutter-width;
+      margin: 0;
+      font-size: $cm-caps-font-size;
+      font-weight: $font-weight-bold;
+      line-height: $cm-navbar-height;
+      color: var(--cm-muted);
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: var(--cm-surface);
+      border: 0;
+      border-radius: 0;
+
+      &:hover {
+        color: var(--#{$prefix}body-color);
+        text-decoration: none;
+      }
+
+      &.active {
+        color: var(--#{$prefix}body-color);
+        background: var(--cm-surface);
+        box-shadow: inset 0 (-$cm-underliner-height) 0 var(--#{$prefix}primary);
+      }
+    }
+  }
+}

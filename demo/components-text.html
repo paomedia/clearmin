@@ -2,19 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
         <title>Clearmin template</title>
     </head>
     <body class="cm-no-transition cm-2-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
-                <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </nav>
             <div id="cm-menu-content">
                 <div id="cm-menu-items-wrapper">
@@ -22,6 +23,7 @@
                         <ul class="cm-menu-items">
                             <li><a href="index.html" class="sf-house">Home</a></li>
                             <li><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li><a href="tables.html" class="sf-database">Data tables</a></li>
                             <li class="active"><a href="components-text.html" class="sf-brick">Components</a></li>
                             <li class="cm-submenu">
                                 <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
@@ -35,7 +37,6 @@
                                 <a class="sf-cat">Icons <span class="caret"></span></a>
                                 <ul>
                                     <li><a href="ico-sf.html">Small-n-flat</a></li>
-                                    <li><a href="ico-md.html">Material Design</a></li>
                                     <li><a href="ico-fa.html">Font Awesome</a></li>
                                 </ul>
                             </li>
@@ -48,60 +49,59 @@
         </div>
         <header id="cm-header">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <div class="cm-flex">
                     <h1>Components</h1> 
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
                 </div>
-                <div class="pull-right">
-                    <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"> <span class="label label-danger">23</span> </button>
-                    <div class="popover cm-popover bottom">
-                        <div class="arrow"></div>
-                        <div class="popover-content">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading text-overflow">
-                                        <i class="fa fa-fw fa-envelope"></i> Nunc volutpat aliquet magna.
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
                                     </h4>
-                                    <p class="list-group-item-text text-overflow">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-envelope"></i> Aliquam orci lectus
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
                                     </h4>
                                     <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-warning"></i> Holy guacamole !
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
                                     </h4>
                                     <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
                                 </a>
                             </div>
-                            <div style="padding:10px"><a class="btn btn-success btn-block" href="#">Show me more...</a></div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
-                        </li>
-                        <li class="divider"></li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -110,9 +110,9 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="components-text.html">Typography &amp; Tables</a></li>
-                            <li><a href="components-buttons.html">Buttons &amp; Forms</a></li>
-                            <li><a href="components-interactive.html">Interactive Components</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="components-text.html">Typography &amp; Tables</a></li>
+                            <li class="nav-item"><a class="nav-link" href="components-buttons.html">Buttons &amp; Forms</a></li>
+                            <li class="nav-item"><a class="nav-link" href="components-interactive.html">Interactive Components</a></li>
                         </ul>
                     </div>
                 </div>
@@ -121,10 +121,10 @@
         <div id="global">
             <div class="container-fluid">
                 <div class="row cm-fix-height">
-                    <div class="col-sm-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Headings</div>
-                            <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">Headings</div>
+                            <div class="card-body">
                                 <h1 style="margin-top:0">
                                     h1. Bootstrap heading <small>Secondary text</small>
                                 </h1>
@@ -146,10 +146,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">paragraphs</div>
-                            <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">paragraphs</div>
+                            <div class="card-body">
                                 <p> Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. </p>
                                 <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. </p>
                                 <p> Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>
@@ -159,10 +159,10 @@
                     </div>
                 </div>
                 <div class="row cm-fix-height">
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Adresses</div>
-                            <div class="panel-body">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Adresses</div>
+                            <div class="card-body">
                                 <address>
                                     <strong>Twitter, Inc.</strong>
                                     <br>
@@ -180,21 +180,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Blockquotes</div>
-                            <div class="panel-body">
-                                <blockquote style="margin:0">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                                </blockquote>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Blockquotes</div>
+                            <div class="card-body">
+                                <figure class="mb-0">
+                                    <blockquote class="blockquote">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer mb-0">Someone famous in <cite title="Source Title">Source Title</cite></figcaption>
+                                </figure>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Lists</div>
-                            <div class="panel-body">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Lists</div>
+                            <div class="card-body">
                                 <ul style="margin:0">
                                     <li>Facilisis in pretium</li>
                                     <li>
@@ -213,11 +215,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Tables</div>
-                            <div class="panel-body">
-                                <table class="table table-bordered table-hover">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">Tables</div>
+                            <div class="card-body">
+                                <table class="table table-bordered table-hover caption-top">
                                     <caption>with <code>.table-bordered</code> and <code>.table-hover</code></caption>
                                     <thead>
                                         <tr>
@@ -248,7 +250,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table class="table table-hover" style="margin-bottom:0">
+                                <table class="table table-hover caption-top mb-0">
                                     <caption>with <code>.table-hover</code> only</caption>
                                     <thead>
                                         <tr>
@@ -282,13 +284,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Tables with contextual classes</div>
-                            <div class="panel-body">
-                                <p style="margin-bottom:0">The table is outside the <code>.panel-body</code></p>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">Tables with contextual classes</div>
+                            <div class="card-body">
+                                <p style="margin-bottom:0">The table is outside the <code>.card-body</code></p>
                             </div>
-                            <table class="table">
+                            <table class="table mb-0">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -298,9 +300,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="active">
+                                    <tr class="table-active">
                                         <th scope="row">1</th>
-                                        <td>active</td>
+                                        <td>table-active</td>
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
@@ -310,9 +312,9 @@
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
-                                    <tr class="success">
+                                    <tr class="table-success">
                                         <th scope="row">3</th>
-                                        <td>success</td>
+                                        <td>table-success</td>
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
@@ -322,9 +324,9 @@
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
-                                    <tr class="info">
+                                    <tr class="table-info">
                                         <th scope="row">5</th>
-                                        <td>info</td>
+                                        <td>table-info</td>
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
@@ -334,9 +336,9 @@
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
-                                    <tr class="warning">
+                                    <tr class="table-warning">
                                         <th scope="row">7</th>
-                                        <td>warning</td>
+                                        <td>table-warning</td>
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
@@ -346,9 +348,9 @@
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
-                                    <tr class="danger">
+                                    <tr class="table-danger">
                                         <th scope="row">9</th>
-                                        <td>danger</td>
+                                        <td>table-danger</td>
                                         <td>Column content</td>
                                         <td>Column content</td>
                                     </tr>
@@ -357,18 +359,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <i class="fa fa-fw fa-info-circle"></i> Clearmin uses <a href="http://www.google.com/fonts#ChoosePlace:select/Collection:Roboto">Roboto font</a> by Google Inc. (Apache 2.0) 
+                <div class="alert alert-info alert-dismissible fade show shadowed" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <i class="fa-solid fa-fw fa-circle-info" aria-hidden="true"></i> Clearmin uses <a href="http://www.google.com/fonts#ChoosePlace:select/Collection:Roboto">Roboto font</a> by Google Inc. (Apache 2.0) 
                 </div>
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
         </div>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/jquery.mousewheel.min.js"></script>
-        <script src="assets/js/jquery.cookie.min.js"></script>
-        <script src="assets/js/fastclick.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/clearmin.min.js"></script>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
     </body>
 </html>

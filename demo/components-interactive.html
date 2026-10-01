@@ -2,19 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+        <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+        <link rel="stylesheet" href="../dist/css/roboto.css">
+        <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+        <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/demo.css">
         <title>Clearmin template</title>
     </head>
     <body class="cm-no-transition cm-2-navbar">
         <div id="cm-menu">
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="cm-flex"><a href="index.html" class="cm-logo"></a></div>
-                <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
             </nav>
             <div id="cm-menu-content">
                 <div id="cm-menu-items-wrapper">
@@ -22,6 +23,7 @@
                         <ul class="cm-menu-items">
                             <li><a href="index.html" class="sf-house">Home</a></li>
                             <li><a href="dashboard-sales.html" class="sf-dashboard">Dashboard</a></li>
+                            <li><a href="tables.html" class="sf-database">Data tables</a></li>
                             <li class="active"><a href="components-text.html" class="sf-brick">Components</a></li>
                             <li class="cm-submenu">
                                 <a class="sf-window-layout">Navbar layouts <span class="caret"></span></a>
@@ -35,7 +37,6 @@
                                 <a class="sf-cat">Icons <span class="caret"></span></a>
                                 <ul>
                                     <li><a href="ico-sf.html">Small-n-flat</a></li>
-                                    <li><a href="ico-md.html">Material Design</a></li>
                                     <li><a href="ico-fa.html">Font Awesome</a></li>
                                 </ul>
                             </li>
@@ -48,60 +49,59 @@
         </div>
         <header id="cm-header">
             <nav class="cm-navbar cm-navbar-primary">
-                <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+                <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <div class="cm-flex">
                     <h1>Components</h1> 
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
                 </div>
-                <div class="pull-right">
-                    <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>
+                <button type="button" class="btn btn-primary" data-toggle="cm-theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                <div>
+                    <button type="button" id="cm-search-btn" class="btn btn-primary" data-toggle="cm-search" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-notifications-white" data-toggle="dropdown"> <span class="label label-danger">23</span> </button>
-                    <div class="popover cm-popover bottom">
-                        <div class="arrow"></div>
-                        <div class="popover-content">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="badge text-bg-danger">23</span></button>
+                    <div class="dropdown-menu cm-popover">
+                        <div class="cm-popover-arrow"></div>
+                        <div class="cm-popover-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <h4 class="list-group-item-heading text-overflow">
-                                        <i class="fa fa-fw fa-envelope"></i> Nunc volutpat aliquet magna.
+                                    <h4 class="list-group-item-heading text-truncate">
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Nunc volutpat aliquet magna.
                                     </h4>
-                                    <p class="list-group-item-text text-overflow">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
+                                    <p class="list-group-item-text text-truncate">Pellentesque tincidunt mollis scelerisque. Praesent vel blandit quam.</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-envelope"></i> Aliquam orci lectus
+                                        <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i> Aliquam orci lectus
                                     </h4>
                                     <p class="list-group-item-text">Donec quis arcu non risus sagittis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        <i class="fa fa-fw fa-warning"></i> Holy guacamole !
+                                        <i class="fa-solid fa-fw fa-triangle-exclamation" aria-hidden="true"></i> Holy guacamole !
                                     </h4>
                                     <p class="list-group-item-text">Best check yo self, you're not looking too good.</p>
                                 </a>
                             </div>
-                            <div style="padding:10px"><a class="btn btn-success btn-block" href="#">Show me more...</a></div>
+                            <div style="padding:10px"><a class="btn btn-success w-100" href="#">Show me more...</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
-                    <ul class="dropdown-menu">
-                        <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
-                        </li>
-                        <li class="divider"></li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account"><i class="fa-solid fa-circle-user" aria-hidden="true"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><h6 class="dropdown-header text-center"><strong>John Smith</strong></h6></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-user" aria-hidden="true"></i> Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                            <a class="dropdown-item" href="#"><i class="fa-solid fa-fw fa-gear" aria-hidden="true"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a class="dropdown-item" href="login.html"><i class="fa-solid fa-fw fa-right-from-bracket" aria-hidden="true"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -110,9 +110,9 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                            <li><a href="components-text.html">Typography &amp; Tables</a></li>
-                            <li><a href="components-buttons.html">Buttons &amp; Forms</a></li>
-                            <li class="active"><a href="components-interactive.html">Interactive Components</a></li>
+                            <li class="nav-item"><a class="nav-link" href="components-text.html">Typography &amp; Tables</a></li>
+                            <li class="nav-item"><a class="nav-link" href="components-buttons.html">Buttons &amp; Forms</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="components-interactive.html">Interactive Components</a></li>
                         </ul>
                     </div>
                 </div>
@@ -121,78 +121,78 @@
         <div id="global">
             <style>.demo hr{margin:30px 0}</style>
             <div class="container-fluid">
-                <div class="panel panel-default demo">
-                    <div class="panel-body">
+                <div class="card demo">
+                    <div class="card-body">
                         <h4 style="margin-top:0">Modals</h4> 
                         <p>
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Launch demo modal </button>
+                            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#myModal"> Launch demo modal </button>
                         </p>
                         <hr>
                         <h4>Dropdowns buttons</h4> 
-                        <div class="bs-example" data-example-id="single-button-dropdown">
+                        <div>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Default <span class="caret"></span></button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Default</button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                                 </ul>
                             </div>
                             <!-- /btn-group -->
                             <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Primary <span class="caret"></span></button>
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Primary</button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                                 </ul>
                             </div>
                             <!-- /btn-group -->
                             <div class="btn-group">
-                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Success <span class="caret"></span></button>
+                                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Success</button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                                 </ul>
                             </div>
                             <!-- /btn-group -->
                             <div class="btn-group">
-                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Info <span class="caret"></span></button>
+                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Info</button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                                 </ul>
                             </div>
                             <!-- /btn-group -->
                             <div class="btn-group">
-                                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Warning <span class="caret"></span></button>
+                                <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Warning</button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                                 </ul>
                             </div>
                             <!-- /btn-group -->
                             <div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Danger <span class="caret"></span></button>
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Danger</button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
                                 </ul>
                             </div>
                             <!-- /btn-group -->
@@ -200,54 +200,54 @@
                         <hr>
                         <h4>Dropdowns within pills</h4> 
                         <ul class="nav nav-pills" role="tablist">
-                            <li role="presentation"><a href="#">Regular link</a></li>
-                            <li role="presentation" class="dropdown">
-                                <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> Dropdown <span class="caret"></span> </a>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#">Regular link</a></li>
+                            <li role="presentation" class="nav-item dropdown">
+                                <a id="drop4" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> Dropdown </a>
                                 <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
-                                    <li role="presentation" class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
                                 </ul>
                             </li>
-                            <li role="presentation" class="dropdown">
-                                <a id="drop5" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> Dropdown <span class="caret"></span> </a>
+                            <li role="presentation" class="nav-item dropdown">
+                                <a id="drop5" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> Dropdown </a>
                                 <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
-                                    <li role="presentation" class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
                                 </ul>
                             </li>
-                            <li role="presentation" class="dropdown">
-                                <a id="drop6" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> Dropdown <span class="caret"></span> </a>
+                            <li role="presentation" class="nav-item dropdown">
+                                <a id="drop6" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"> Dropdown </a>
                                 <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
-                                    <li role="presentation" class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li role="presentation"><a class="dropdown-item" role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <hr>
                         <h4>Toggable Tabs</h4> 
                         <ul id="myTab" class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Home</a></li>
-                            <li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Profile</a></li>
-                            <li role="presentation" class="dropdown">
-                                <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <li role="presentation" class="nav-item"><a class="nav-link active" href="#home" id="home-tab" role="tab" data-bs-toggle="tab" aria-controls="home" aria-expanded="true">Home</a></li>
+                            <li role="presentation" class="nav-item"><a class="nav-link" href="#profile" role="tab" id="profile-tab" data-bs-toggle="tab" aria-controls="profile" aria-expanded="false">Profile</a></li>
+                            <li role="presentation" class="nav-item dropdown">
+                                <a href="#" id="myTabDrop1" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Dropdown</a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                                    <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
-                                    <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+                                    <li><a class="dropdown-item" href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-bs-toggle="tab" aria-controls="dropdown1">@fat</a></li>
+                                    <li><a class="dropdown-item" href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-bs-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <br>
                         <div id="myTabContent" class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+                            <div role="tabpanel" class="tab-pane fade active show" id="home" aria-labelledby="home-tab">
                                 <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
@@ -263,56 +263,52 @@
                         <hr>
                         <h4>Tooltips</h4> 
                         <div class="row">
-                            <div class="col-sm-3 text-center">
-                                <div class="btn btn-default tooltip-test" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</div>
+                            <div class="col-md-3 text-center">
+                                <div class="btn btn-default tooltip-test" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">Tooltip on left</div>
                             </div>
-                            <div class="col-sm-3 text-center">
-                                <div class="btn btn-default tooltip-test" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</div>
+                            <div class="col-md-3 text-center">
+                                <div class="btn btn-default tooltip-test" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">Tooltip on top</div>
                             </div>
-                            <div class="col-sm-3 text-center">
-                                <div class="btn btn-default tooltip-test" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</div>
+                            <div class="col-md-3 text-center">
+                                <div class="btn btn-default tooltip-test" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</div>
                             </div>
-                            <div class="col-sm-3 text-center">
-                                <div class="btn btn-default tooltip-test" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</div>
+                            <div class="col-md-3 text-center">
+                                <div class="btn btn-default tooltip-test" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">Tooltip on right</div>
                             </div>
                         </div>
                         <hr>
                         <h4>Popovers</h4> 
-                        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-trigger="focus" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+                        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-trigger="focus" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+                        <hr>
+                        <h4>Toasts</h4>
+                        <p>Declarative with <code>data-cm-toast</code>, or from JavaScript: <code>CM.toast('Saved!', { title: 'Article', color: 'success' })</code>.</p>
+                        <button type="button" class="btn btn-success" data-cm-toast="Your changes have been saved." data-cm-toast-title="Success" data-cm-toast-color="success">Success toast</button>
+                        <button type="button" class="btn btn-info" data-cm-toast="A new version is available." data-cm-toast-color="info">Info toast</button>
+                        <button type="button" class="btn btn-warning" data-cm-toast="Your session expires in 5 minutes." data-cm-toast-title="Warning" data-cm-toast-color="warning">Warning toast</button>
+                        <button type="button" class="btn btn-danger" data-cm-toast="The server could not be reached." data-cm-toast-title="Error" data-cm-toast-color="danger">Danger toast</button>
+                        <button type="button" class="btn btn-midnight" onclick="CM.toast('Sent from JavaScript at ' + new Date().toLocaleTimeString(), { color: 'midnight' })">From JavaScript</button>
                     </div>
                 </div>
             </div>
-            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title" id="myModalLabel">
-                                Modal title
-                                <a class="anchorjs-link" href="#myModalLabel"><span class="anchorjs-icon"></span></a>
-                            </h4>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h4 id="text-in-a-modal">
-                                Text in a modal
-                                <a class="anchorjs-link" href="#text-in-a-modal"><span class="anchorjs-icon"></span></a>
-                            </h4>
+                            <h4 id="text-in-a-modal">Text in a modal</h4>
                             <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
                             <hr>
-                            <h4 id="popover-in-a-modal">
-                                Popover in a modal
-                                <a class="anchorjs-link" href="#popover-in-a-modal"><span class="anchorjs-icon"></span></a>
-                            </h4>
-                            <p>This <a href="#" role="button" class="btn btn-default popover-test" title="" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">button</a> should trigger a popover on click.</p>
+                            <h4 id="popover-in-a-modal">Popover in a modal</h4>
+                            <p>This <a href="#" role="button" class="btn btn-default popover-test" title="" data-bs-content="And here's some amazing content. It's very engaging. right?" data-bs-title="A Title">button</a> should trigger a popover on click.</p>
                             <hr>
-                            <h4 id="tooltips-in-a-modal">
-                                Tooltips in a modal
-                                <a class="anchorjs-link" href="#tooltips-in-a-modal"><span class="anchorjs-icon"></span></a>
-                            </h4>
-                            <p><a href="#" class="tooltip-test" title="" data-original-title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="" data-original-title="Tooltip">that link</a> should have tooltips on hover.</p>
+                            <h4 id="tooltips-in-a-modal">Tooltips in a modal</h4>
+                            <p><a href="#" class="tooltip-test" data-bs-title="Tooltip">This link</a> and <a href="#" class="tooltip-test" data-bs-title="Tooltip">that link</a> should have tooltips on hover.</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
@@ -320,14 +316,11 @@
                 </div>
                 <!-- /.modal-dialog -->
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="float-start">Connected as John Smith</span><span class="float-end">&copy; PAOMEDIA SARL</span></footer>
         </div>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/jquery.mousewheel.min.js"></script>
-        <script src="assets/js/jquery.cookie.min.js"></script>
-        <script src="assets/js/fastclick.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/clearmin.min.js"></script>
-        <script src="assets/js/demo/popovers-tooltips.js"></script>
+        <script src="../dist/js/popper.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+        <script src="../dist/js/clearmin.min.js"></script>
+        <script src="assets/js/popovers-tooltips.js"></script>
     </body>
 </html>

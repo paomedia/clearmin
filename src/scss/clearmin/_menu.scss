@@ -1,0 +1,240 @@
+// Left menu
+//
+// Off-canvas below $cm-desktop-breakpoint, docked above it (see _desktop.scss).
+// `body.cm-menu-toggled` opens it on mobile and condenses it on desktop.
+
+#cm-menu {
+  position: fixed;
+  top: 0;
+  left: -$cm-menu-width;
+  z-index: 200;
+  width: $cm-menu-width;
+  height: 100%;
+  background: var(--cm-surface);
+  transition: transform $cm-translen-global;
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#cm-menu-content {
+  position: absolute;
+  top: $cm-navbar-height + 1px;
+  right: 0;
+  left: 0;
+  height: 100%;
+  overflow-x: hidden;
+  border-right: 1px solid var(--cm-border);
+}
+
+#cm-menu-items-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: transform $cm-translen-global;
+}
+
+// 100px wider than the menu to push the native scrollbar out of sight
+#cm-menu-scroller {
+  width: $cm-menu-width + 100px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cm-menu-items {
+  display: block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition: transform $cm-translen-global;
+
+  li {
+    position: relative;
+    display: block;
+    transition: transform $cm-translen-global;
+  }
+
+  li a {
+    position: relative;
+    display: block;
+    padding: 0 115px 0 50px;
+    font-weight: $font-weight-bold;
+    line-height: $cm-navbar-height;
+    color: var(--cm-muted);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--cm-surface);
+    background-repeat: no-repeat;
+    background-position: 13px 13px;
+    background-size: 24px 24px;
+    border-bottom: 1px solid var(--cm-border-light);
+    transform: translateZ(0);
+    @include text-truncate();
+
+    &:hover {
+      color: var(--#{$prefix}body-color);
+    }
+  }
+
+  // Font Awesome icon (alternative to a background image class like .sf-house)
+  li > a > i:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $cm-navbar-height;
+    font-size: $cm-icon-font-size;
+    line-height: $cm-navbar-height;
+    text-align: center;
+  }
+
+  li.active > a,
+  li > a.active {
+    color: var(--#{$prefix}body-color);
+    box-shadow: inset $cm-underliner-height 0 0 var(--#{$prefix}primary);
+  }
+
+  // Room to scroll the last items above the bottom of the screen
+  &::after {
+    display: block;
+    height: ($cm-navbar-height + 1px) * 4;
+    content: "\00a0";
+    background: var(--cm-surface);
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.cm-submenu {
+  .caret {
+    position: absolute;
+    top: 23px;
+    left: $cm-menu-width - 25px;
+    transform: rotate(-90deg);
+    transition: transform $cm-translen-global;
+  }
+
+  > ul {
+    position: absolute;
+    z-index: 9;
+    width: $cm-menu-width + 100px;
+    padding: 0;
+    margin: 0;
+    background: var(--cm-subtle-bg);
+    box-shadow: inset -5px 1px 3px rgba($black, .05);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform $cm-translen-global;
+
+    li a {
+      padding-left: 15px;
+      font-weight: $font-weight-normal;
+      line-height: 38px;
+      background: transparent;
+    }
+  }
+
+  &.open,
+  &.pre-open {
+    .caret {
+      transform: rotate(0deg);
+    }
+
+    > ul {
+      transform: scaleY(1);
+    }
+  }
+
+  &.pre-open > ul {
+    position: static;
+  }
+}
+
+#cm-menu-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 150;
+  height: 200%;
+  visibility: hidden;
+  background: $black;
+  opacity: 0;
+  transition: all $cm-translen-global * 2;
+
+  @include media-breakpoint-up($cm-desktop-breakpoint) {
+    display: none;
+  }
+}
+
+body.cm-menu-toggled {
+  #cm-menu {
+    transform: translateX($cm-menu-width);
+  }
+
+  #cm-menu-backdrop {
+    visibility: visible;
+    opacity: .5;
+  }
+}
+
+// Submenu displayed next to the condensed menu
+#cm-submenu-popover {
+  position: fixed;
+  left: $cm-navbar-height;
+  z-index: 150;
+
+  ul {
+    min-width: 160px;
+    padding: 0;
+    margin: 5px 0;
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    padding: 6px 20px;
+    margin: 0 5px;
+    color: $dropdown-link-color;
+    white-space: nowrap;
+    @include border-radius($border-radius);
+
+    &:hover,
+    &:focus {
+      color: $dropdown-link-hover-color;
+      text-decoration: none;
+      background-color: $dropdown-link-hover-bg;
+    }
+  }
+
+  .cm-popover {
+    position: relative;
+    width: auto;
+    margin-left: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  &.show .cm-popover {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+}

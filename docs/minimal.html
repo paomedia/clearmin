@@ -2,19 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-clearmin.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/roboto.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <title>Clearmin Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>try{document.documentElement.dataset.bsTheme=localStorage.getItem('cm-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+    <link rel="stylesheet" href="../dist/css/clearmin.min.css">
+    <link rel="stylesheet" href="../dist/css/roboto.css">
+    <link rel="stylesheet" href="../dist/css/small-n-flat.css">
+    <link rel="stylesheet" href="../dist/fontawesome/css/all.min.css">
+    <title>Clearmin minimal page</title>
   </head>
   <body class="cm-no-transition cm-1-navbar">
     <div id="cm-menu">
       <nav class="cm-navbar cm-navbar-primary">
         <div class="cm-flex"><div class="cm-logo"></div></div>
-        <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+        <button type="button" class="btn btn-primary" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
       </nav>
       <div id="cm-menu-content">
         <div id="cm-menu-items-wrapper">
@@ -28,25 +28,22 @@
     </div>
     <header id="cm-header">
       <nav class="cm-navbar cm-navbar-primary">
-        <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+        <button type="button" class="btn btn-primary d-lg-none" data-toggle="cm-menu" aria-label="Toggle menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         <div class="cm-flex"><h1>Put your title here</h1></div>
       </nav>
     </header>
     <div id="global">
       <div class="container-fluid">
-        <div class="panel panel-default">
-          <div class="panel-body">
-	    <h2 style="margin:0">Hello World !</h2> 
+        <div class="card">
+          <div class="card-body">
+	    <h2 class="m-0">Hello World !</h2>
 	  </div>
 	</div>
       </div>
-      <footer class="cm-footer"><span class="pull-right">&copy; ACME Inc.</span></footer>
+      <footer class="cm-footer"><span class="float-end">&copy; ACME Inc.</span></footer>
     </div>
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/jquery.mousewheel.min.js"></script>
-    <script src="assets/js/jquery.cookie.min.js"></script>
-    <script src="assets/js/fastclick.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/clearmin.min.js"></script>
+    <script src="../dist/js/popper.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../dist/js/clearmin.min.js"></script>
   </body>
 </html>
