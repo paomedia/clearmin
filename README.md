@@ -4,7 +4,7 @@
 
 Bootstrap 5.3 dashboard / webapp / admin template. No jQuery: Clearmin's own script is plain JavaScript.
 
-**Check the demo: http://cm.paomedia.com/**
+**Live demo: https://paomedia.github.io/clearmin/demo/** · **Documentation: https://paomedia.github.io/clearmin/docs/**
 
 **More doc inside the repo** (`docs/index.html`)
 
