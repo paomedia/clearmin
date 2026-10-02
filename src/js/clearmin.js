@@ -720,11 +720,17 @@
       }
     },
 
-    // Swipe from the left border of the screen to open the menu (mobile)
+    // Drag the menu open from the left border of the screen, or drag it closed (mobile).
+    // The menu follows the finger; on release it settles open or closed depending on
+    // the fling velocity, or on how far it was dragged when released slowly.
     swiper: {
+      slop: 10, // px of movement before the gesture picks an axis
+      fling: 0.3, // px/ms above which the release velocity decides the direction
+      samples: 100, // ms of movement used to measure the release velocity
+
       init() {
         this.menu = $('#cm-menu')
-        this.mask = $('#cm-menu-backdrop')
+        this.backdrop = $('#cm-menu-backdrop')
         if (!this.menu) {
           return
         }
@@ -735,80 +741,153 @@
         }
 
         document.addEventListener('touchstart', event => this.start(event), { passive: true })
-        document.addEventListener('touchmove', event => this.move(event), { passive: true })
-        document.addEventListener('touchend', () => this.end(), { passive: true })
-        document.addEventListener('touchcancel', () => this.end(), { passive: true })
+        // Not passive: once the menu is being dragged, the page must not scroll
+        document.addEventListener('touchmove', event => this.move(event), { passive: false })
+        document.addEventListener('touchend', event => this.end(event), { passive: true })
+        document.addEventListener('touchcancel', event => this.end(event, true), { passive: true })
+      },
+
+      touch(event) {
+        return Array.from(event.changedTouches).find(touch => touch.identifier === this.id)
       },
 
       start(event) {
+        if (this.tracking) {
+          return // a second finger, keep following the first one
+        }
+
+        this.finish()
         const touch = event.changedTouches[0]
-        const openMinPos = this.ios ? 10 : 0
-        const openMaxPos = this.ios ? 90 : 50
         const state = CM.getState()
+        // iOS Safari uses the very border of the screen for its own back gesture
+        const edgeMin = this.ios ? 10 : 0
+        const edgeMax = this.ios ? 90 : 50
+        if (!state.mobile || (!state.open && (touch.clientX < edgeMin || touch.clientX > edgeMax))) {
+          return
+        }
 
-        this.threshold = false
-        this.mwidth = this.menu.offsetWidth
-        this.lastTime = Date.now()
-        this.lastX = touch.clientX
-        this.speed = 0
-        this.dx = 0
-        this.mobile = state.mobile
+        this.tracking = true
+        this.dragging = false
+        this.id = touch.identifier
         this.open = state.open
-        this.xStart = touch.clientX
-        this.yStart = touch.clientY
-        this.lock = !this.mobile || (!this.open && (this.xStart > openMaxPos || this.xStart < openMinPos))
-
-        if (this.mobile && this.open) {
-          this.xStart = Math.min(this.xStart, this.mwidth)
-        }
-
-        if (!this.lock) {
-          document.body.classList.add('cm-no-transition')
-        }
+        this.width = this.menu.offsetWidth
+        this.x0 = touch.clientX
+        this.y0 = touch.clientY
       },
 
       move(event) {
-        const touch = event.changedTouches[0]
-        const dy = touch.clientY - this.yStart
-        const time = Date.now()
-        this.speed = Math.abs(touch.clientX - this.lastX) / Math.max(time - this.lastTime, 1)
-        this.lastX = touch.clientX
-        this.lastTime = time
-        this.dx = touch.clientX - this.xStart
-
-        if (Math.abs(this.dx) < 10 && !this.threshold) {
-          this.dx = 0
-        } else {
-          this.threshold = true
-        }
-
-        if (this.lock || Math.abs(dy) > Math.abs(this.dx) * 2) {
+        const touch = this.tracking && this.touch(event)
+        if (!touch) {
           return
         }
 
-        const x = this.open ?
-          Math.min(this.mwidth + this.dx, this.mwidth) :
-          Math.min(this.dx + this.xStart, this.mwidth)
+        if (!this.dragging) {
+          const dx = touch.clientX - this.x0
+          const dy = touch.clientY - this.y0
+          if (Math.hypot(dx, dy) < this.slop) {
+            return
+          }
 
-        this.menu.style.transform = `translateX(${x}px)`
-        this.mask.style.visibility = 'visible'
-        this.mask.style.opacity = (x / this.mwidth) / 2
+          // Mostly vertical, or pushing the menu where it already is: let the page scroll
+          if (Math.abs(dy) > Math.abs(dx) || (dx > 0) === this.open) {
+            this.tracking = false
+            return
+          }
+
+          // Follow the finger from here on, so the menu does not jump by the slop
+          this.dragging = true
+          this.x0 = touch.clientX
+          this.from = this.open ? this.width : 0
+          this.pos = this.from
+          this.history = []
+          this.menu.style.transition = 'none'
+          this.backdrop.style.transition = 'none'
+          this.backdrop.style.visibility = 'visible'
+        }
+
+        if (event.cancelable) {
+          event.preventDefault()
+        }
+
+        this.pos = Math.min(Math.max(this.from + touch.clientX - this.x0, 0), this.width)
+        this.history.push({ x: touch.clientX, t: event.timeStamp })
+        if (!this.frame) {
+          this.frame = requestAnimationFrame(() => {
+            this.frame = null
+            this.render(this.pos)
+          })
+        }
       },
 
-      end() {
-        if (this.lock) {
+      end(event, cancelled = false) {
+        const touch = this.tracking && this.touch(event)
+        if (!touch) {
           return
         }
 
-        document.body.classList.remove('cm-no-transition')
-        const distance = Math.min(Math.max(this.speed, 1), 3) * (this.open ? -1 : 1) * this.dx * 2
-        if (distance > this.mwidth) {
-          CM.menu.toggle()
+        this.tracking = false
+        if (!this.dragging) {
+          return
         }
 
-        this.menu.style.removeProperty('transform')
-        this.mask.style.removeProperty('visibility')
-        this.mask.style.removeProperty('opacity')
+        this.dragging = false
+        cancelAnimationFrame(this.frame)
+        this.frame = null
+        this.render(this.pos)
+
+        // Velocity over the last moments only: holding still before releasing is not a fling
+        const recent = this.history.filter(sample => event.timeStamp - sample.t <= this.samples)
+        const first = recent[0]
+        const last = recent[recent.length - 1]
+        const velocity = recent.length > 1 && last.t > first.t ? (last.x - first.x) / (last.t - first.t) : 0
+
+        let open
+        if (cancelled) {
+          open = this.open
+        } else if (Math.abs(velocity) > this.fling) {
+          open = velocity > 0
+        } else {
+          open = this.pos > this.width / 2
+        }
+
+        this.settle(open, velocity)
+      },
+
+      render(pos) {
+        this.menu.style.transform = `translateX(${pos}px)`
+        this.backdrop.style.opacity = (pos / this.width) / 2
+      },
+
+      // Animate to the final position, keeping the speed of the finger when it was flung
+      settle(open, velocity) {
+        const distance = Math.abs((open ? this.width : 0) - this.pos)
+        const speed = Math.max(Math.abs(velocity), this.width / 250)
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        const duration = reduce ? 0 : Math.round(Math.min(Math.max(distance / speed, 100), 300))
+        const transition = `${duration}ms cubic-bezier(.2, .8, .4, 1)`
+
+        this.menu.style.transition = `transform ${transition}`
+        this.backdrop.style.transition = `opacity ${transition}`
+        this.menu.getBoundingClientRect() // start from the last rendered position
+        this.render(open ? this.width : 0)
+        if (open !== this.open) {
+          CM.menu.setToggled(open)
+        }
+
+        // The inline styles now match the stylesheet: drop them once the menu is there
+        this.timer = setTimeout(() => this.finish(), duration + 50)
+      },
+
+      finish() {
+        clearTimeout(this.timer)
+        this.timer = null
+        for (const property of ['transition', 'transform']) {
+          this.menu.style.removeProperty(property)
+        }
+
+        for (const property of ['transition', 'visibility', 'opacity']) {
+          this.backdrop.style.removeProperty(property)
+        }
       }
     }
   }
